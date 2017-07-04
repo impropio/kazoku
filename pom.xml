@@ -1,0 +1,158 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.francisco</groupId>
+	<artifactId>kazoku</artifactId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+	<name>Kazoku</name>
+	<developers>
+		<developer>
+			<name>J. Francisco Moro</name>
+		</developer>
+	</developers>
+	
+	<properties>
+		<!-- Generic properties -->
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- Commons -->
+		<commons.codec.version>1.10</commons.codec.version>
+		<!-- Test -->
+		<powermock.version>1.6.1</powermock.version>
+		<!-- Javax Servlet -->
+		<jstl.version>1.2</jstl.version>
+		<!-- AspectJ -->
+		<aspectj.version>1.7.3</aspectj.version>
+		<!-- Jsoup -->
+		<jsoup.version>1.7.3</jsoup.version>
+		<!-- Jackson -->
+		<jackson.mapper.version>1.9.13</jackson.mapper.version>
+		<!-- ORACLE -->
+		<oracle.ojdbc.version>11.2.0.3.0</oracle.ojdbc.version>
+		
+		<argLine>-Xmx256m -XX:MaxPermSize=256m</argLine>
+	</properties>
+	
+	<dependencies>
+	 	<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>4.2.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<!-- Test Artifacts -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.3.7.RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Aspectj -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<!-- Spring and Transactions -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.3.7.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>4.3.7.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>4.3.7.RELEASE</version>
+		</dependency>
+		<dependency>
+	      <groupId>org.springframework</groupId>
+	      <artifactId>spring-webmvc</artifactId>
+	      <version>4.3.7.RELEASE</version>
+	    </dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		
+		<!-- Log -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+		
+		<dependency>
+        	<groupId>commons-logging</groupId>
+        	<artifactId>commons-logging</artifactId>
+        	<version>1.1.1</version>
+			<scope>test</scope>
+		</dependency>
+		
+	 </dependencies>
+	 
+	 <build>
+	 	<plugins>
+	 		<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<forkCount>3</forkCount>
+					<reuseForks>true</reuseForks>
+					<!--No poner argLine aqui! Ponerlo en <properties> -->
+				</configuration>
+			</plugin>
+	 	</plugins>
+	 </build>
+	
+	<modules>
+		<module>kazoku-comunicacion</module>
+		<module>kazoku-servicios</module>
+		<module>kazoku-web</module>
+	</modules>
+</project>

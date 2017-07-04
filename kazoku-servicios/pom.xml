@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.francisco</groupId>
+		<artifactId>kazoku</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>kazoku-servicios</artifactId>
+	
+	<dependencies>
+		<!-- Commons -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons.codec.version}</version>
+		</dependency>
+		<!-- Jackson -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.mapper.version}</version>
+		</dependency>
+		
+		<!-- Proyecto Comunicacion -->
+		<dependency>
+			<groupId>com.francisco</groupId>
+			<artifactId>kazoku-comunicacion</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+	</dependencies>
+	
+</project>
