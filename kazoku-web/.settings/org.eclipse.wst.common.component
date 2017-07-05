@@ -7,6 +7,9 @@
         <dependent-module archiveName="kazoku-servicios-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/kazoku-servicios/kazoku-servicios">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="kazoku-basedatos-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/kazoku-basedatos/kazoku-basedatos">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="kazoku-comunicacion-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/kazoku-comunicacion/kazoku-comunicacion">
             <dependency-type>uses</dependency-type>
         </dependent-module>

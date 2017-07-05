@@ -154,5 +154,6 @@
 		<module>kazoku-comunicacion</module>
 		<module>kazoku-servicios</module>
 		<module>kazoku-web</module>
+		<module>kazoku-basedatos</module>
 	</modules>
 </project>

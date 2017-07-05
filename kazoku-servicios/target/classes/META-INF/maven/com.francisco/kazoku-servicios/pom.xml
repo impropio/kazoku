@@ -23,6 +23,12 @@
 			<version>${jackson.mapper.version}</version>
 		</dependency>
 		
+		<!-- Proyecto Basedatos -->
+		<dependency>
+			<groupId>com.francisco</groupId>
+			<artifactId>kazoku-basedatos</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 		<!-- Proyecto Comunicacion -->
 		<dependency>
 			<groupId>com.francisco</groupId>
