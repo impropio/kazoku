@@ -21,15 +21,19 @@
 	<body>
 		<div class="contenedor">
 			<div class="col-md-8 alto-100">
-				<div class="row alto-25">
-				</div>
-				<div class="row alto-25">
-				</div>
 				<div class="row alto-50">
+					<h1>Tiempo actual</h1>
+				</div>
+				<div class="row alto-25">
+					<h1>Tiempo próximos 7 dias</h1>
+				</div>
+				<div class="row alto-25">
+					Fecha / hora
 				</div>
 			</div>
 			<div class="col-md-4 alto-100">
 				<div class="row alto-100">
+					<h1>Próximos eventos</h1>
 				</div>
 			</div>
 		</div>
