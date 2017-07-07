@@ -1,0 +1,269 @@
+/*-------------------------
+-	       Reloj          -
+-------------------------*/
+#reloj{
+	height: 100%;
+	background-color:#F0F3F4;
+	color:#272e38;
+}
+#reloj .display{
+	height: 100%;
+	text-align:center;
+	padding-top: 40px;
+	position:relative;
+}
+#reloj:after{
+	box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+#reloj .digitos div span{
+	background-color:#272e38;
+	border-color:#272e38;	
+}
+#reloj .digitos div.dots:before,
+#reloj .digitos div.dots:after{
+	background-color:#272e38;
+}
+#reloj .alarm{
+	background:url('../img/alarm_light.jpg');
+}
+
+/*-------------------------
+-	 Light color theme    -
+-------------------------*/
+#reloj.light{
+	background-color:#f3f3f3;
+	color:#272e38;
+}
+#reloj.light:after{
+	box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+#reloj.light .digitos div span{
+	background-color:#272e38;
+	border-color:#272e38;	
+}
+#reloj.light .digitos div.dots:before,
+#reloj.light .digitos div.dots:after{
+	background-color:#272e38;
+}
+#reloj.light .alarm{
+	background:url('../img/alarm_light.jpg');
+}
+#reloj.light .display{
+	background-color:#dddddd;
+	box-shadow:0 1px 1px rgba(0,0,0,0.08) inset, 0 1px 1px #fafafa;
+}
+
+/*-------------------------
+-     Dark color theme    -
+-------------------------*/
+#reloj.dark{
+	background-color:#272e38;
+	color:#cacaca;
+}
+#reloj.dark:after{
+	box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+#reloj.dark .digitos div span{
+	background-color:#cacaca;
+	border-color:#cacaca;	
+}
+#reloj.dark .alarm{
+	background:url('../img/alarm_dark.jpg');
+}
+#reloj.dark .display{
+	background-color:#0f1620;
+	box-shadow:0 1px 1px rgba(0,0,0,0.08) inset, 0 1px 1px #2d3642;
+}
+#reloj.dark .digitos div.dots:before,
+#reloj.dark .digitos div.dots:after{
+	background-color:#cacaca;
+}
+
+/*-------------------------
+-        Digitos          -
+-------------------------*/
+#reloj .digitos div{
+	text-align:left;
+	position:relative;
+	width: 28px;
+	height:50px;
+	display:inline-block;
+	margin:0 4px;
+}
+#reloj .digitos div span{
+	opacity:0;
+	position:absolute;
+	-webkit-transition:0.25s;
+	-moz-transition:0.25s;
+	transition:0.25s;
+}
+#reloj .digitos div span:before,
+#reloj .digitos div span:after{
+	content:'';
+	position:absolute;
+	width:0;
+	height:0;
+	border:5px solid transparent;
+}
+#reloj .digitos .d1{			height:5px;width:16px;top:0;left:6px;}
+#reloj .digitos .d1:before{	border-width:0 5px 5px 0;border-right-color:inherit;left:-5px;}
+#reloj .digitos .d1:after{	border-width:0 0 5px 5px;border-left-color:inherit;right:-5px;}
+
+#reloj .digitos .d2{			height:5px;width:16px;top:24px;left:6px;}
+#reloj .digitos .d2:before{	border-width:3px 4px 2px;border-right-color:inherit;left:-8px;}
+#reloj .digitos .d2:after{	border-width:3px 4px 2px;border-left-color:inherit;right:-8px;}
+
+#reloj .digitos .d3{			height:5px;width:16px;top:48px;left:6px;}
+#reloj .digitos .d3:before{	border-width:5px 5px 0 0;border-right-color:inherit;left:-5px;}
+#reloj .digitos .d3:after{	border-width:5px 0 0 5px;border-left-color:inherit;right:-5px;}
+
+#reloj .digitos .d4{			width:5px;height:14px;top:7px;left:0;}
+#reloj .digitos .d4:before{	border-width:0 5px 5px 0;border-bottom-color:inherit;top:-5px;}
+#reloj .digitos .d4:after{	border-width:0 0 5px 5px;border-left-color:inherit;bottom:-5px;}
+
+#reloj .digitos .d5{			width:5px;height:14px;top:7px;right:0;}
+#reloj .digitos .d5:before{	border-width:0 0 5px 5px;border-bottom-color:inherit;top:-5px;}
+#reloj .digitos .d5:after{	border-width:5px 0 0 5px;border-top-color:inherit;bottom:-5px;}
+
+#reloj .digitos .d6{			width:5px;height:14px;top:32px;left:0;}
+#reloj .digitos .d6:before{	border-width:0 5px 5px 0;border-bottom-color:inherit;top:-5px;}
+#reloj .digitos .d6:after{	border-width:0 0 5px 5px;border-left-color:inherit;bottom:-5px;}
+
+#reloj .digitos .d7{			width:5px;height:14px;top:32px;right:0;}
+#reloj .digitos .d7:before{	border-width:0 0 5px 5px;border-bottom-color:inherit;top:-5px;}
+#reloj .digitos .d7:after{	border-width:5px 0 0 5px;border-top-color:inherit;bottom:-5px;}
+
+/* 1 */
+#reloj .digitos div.uno .d5,
+#reloj .digitos div.uno .d7{
+	opacity:1;
+}
+
+/* 2 */
+#reloj .digitos div.dos .d1,
+#reloj .digitos div.dos .d5,
+#reloj .digitos div.dos .d2,
+#reloj .digitos div.dos .d6,
+#reloj .digitos div.dos .d3{
+	opacity:1;
+}
+
+/* 3 */
+#reloj .digitos div.tres .d1,
+#reloj .digitos div.tres .d5,
+#reloj .digitos div.tres .d2,
+#reloj .digitos div.tres .d7,
+#reloj .digitos div.tres .d3{
+	opacity:1;
+}
+
+/* 4 */
+#reloj .digitos div.cuatro .d5,
+#reloj .digitos div.cuatro .d2,
+#reloj .digitos div.cuatro .d4,
+#reloj .digitos div.cuatro .d7{
+	opacity:1;
+}
+
+/* 5 */
+#reloj .digitos div.cinco .d1,
+#reloj .digitos div.cinco .d2,
+#reloj .digitos div.cinco .d4,
+#reloj .digitos div.cinco .d3,
+#reloj .digitos div.cinco .d7{
+	opacity:1;
+}
+
+/* 6 */
+#reloj .digitos div.seis .d1,
+#reloj .digitos div.seis .d2,
+#reloj .digitos div.seis .d4,
+#reloj .digitos div.seis .d3,
+#reloj .digitos div.seis .d6,
+#reloj .digitos div.seis .d7{
+	opacity:1;
+}
+
+/* 7 */
+#reloj .digitos div.siete .d1,
+#reloj .digitos div.siete .d5,
+#reloj .digitos div.siete .d7{
+	opacity:1;
+}
+
+/* 8 */
+#reloj .digitos div.ocho .d1,
+#reloj .digitos div.ocho .d2,
+#reloj .digitos div.ocho .d3,
+#reloj .digitos div.ocho .d4,
+#reloj .digitos div.ocho .d5,
+#reloj .digitos div.ocho .d6,
+#reloj .digitos div.ocho .d7{
+	opacity:1;
+}
+
+/* 9 */
+#reloj .digitos div.nueve .d1,
+#reloj .digitos div.nueve .d2,
+#reloj .digitos div.nueve .d3,
+#reloj .digitos div.nueve .d4,
+#reloj .digitos div.nueve .d5,
+#reloj .digitos div.nueve .d7{
+	opacity:1;
+}
+
+/* 0 */
+#reloj .digitos div.cero .d1,
+#reloj .digitos div.cero .d3,
+#reloj .digitos div.cero .d4,
+#reloj .digitos div.cero .d5,
+#reloj .digitos div.cero .d6,
+#reloj .digitos div.cero .d7{
+	opacity:1;
+}
+
+/* The dots */
+#reloj .digitos div.dots{
+	width:5px;
+}
+#reloj .digitos div.dots:before,
+#reloj .digitos div.dots:after{
+	width:5px;
+	height:5px;
+	content:'';
+	position:absolute;
+	left:0;
+	top:14px;
+}
+#reloj .digitos div.dots:after{
+	top:34px;
+}
+
+/*-------------------------
+-        diasSemana       -
+-------------------------*/
+#reloj .diasSemana{
+	font-size:12px;
+	position:absolute;
+	width:100%;
+	top:10px;
+	left:0;
+	text-align:center;
+}
+#reloj .diasSemana span{
+	opacity:0.2;
+	padding:0 10px;
+}
+#reloj .diasSemana span.active{
+	opacity:1;
+}
+
+/*-------------------------
+-          AM/PM          -
+-------------------------*/
+#reloj .ampm{
+	position:absolute;
+	bottom:20px;
+	right:20px;
+	font-size:12px;
+}
