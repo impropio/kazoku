@@ -3,24 +3,21 @@
 -------------------------*/
 #reloj{
 	height: 100%;
+	display: table;
 	background-color:#F0F3F4;
 	color:#272e38;
 }
 #reloj .display{
-	height: 100%;
+	display: table-cell;
+	vertical-align: middle;
 	text-align:center;
-	padding-top: 40px;
-	position:relative;
-}
-#reloj:after{
-	box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
 #reloj .digitos div span{
 	background-color:#272e38;
 	border-color:#272e38;	
 }
-#reloj .digitos div.dots:before,
-#reloj .digitos div.dots:after{
+#reloj .digitos div.separador:before,
+#reloj .digitos div.separador:after{
 	background-color:#272e38;
 }
 #reloj .alarm{
@@ -41,8 +38,8 @@
 	background-color:#272e38;
 	border-color:#272e38;	
 }
-#reloj.light .digitos div.dots:before,
-#reloj.light .digitos div.dots:after{
+#reloj.light .digitos div.separador:before,
+#reloj.light .digitos div.separador:after{
 	background-color:#272e38;
 }
 #reloj.light .alarm{
@@ -74,9 +71,36 @@
 	background-color:#0f1620;
 	box-shadow:0 1px 1px rgba(0,0,0,0.08) inset, 0 1px 1px #2d3642;
 }
-#reloj.dark .digitos div.dots:before,
-#reloj.dark .digitos div.dots:after{
+#reloj.dark .digitos div.separador:before,
+#reloj.dark .digitos div.separador:after{
 	background-color:#cacaca;
+}
+
+/*-------------------------
+-        diasSemana       -
+-------------------------*/
+#reloj .diasSemana{
+	font-size:12px;
+	width:100%;
+	text-align:center;
+	margin-bottom: 4%;
+}
+#reloj .diasSemana span{
+	opacity:0.4;
+	padding:0 10px;
+}
+#reloj .diasSemana .festivo{
+	color: red;
+}
+#reloj .diasSemana span.active{
+	opacity:1;
+}
+
+/*-------------------------
+-          fecha          -
+-------------------------*/
+#reloj .fecha{
+	margin-top: 4%;
 }
 
 /*-------------------------
@@ -222,12 +246,12 @@
 	opacity:1;
 }
 
-/* The dots */
-#reloj .digitos div.dots{
+/* The separador */
+#reloj .digitos div.separador{
 	width:5px;
 }
-#reloj .digitos div.dots:before,
-#reloj .digitos div.dots:after{
+#reloj .digitos div.separador:before,
+#reloj .digitos div.separador:after{
 	width:5px;
 	height:5px;
 	content:'';
@@ -235,27 +259,8 @@
 	left:0;
 	top:14px;
 }
-#reloj .digitos div.dots:after{
+#reloj .digitos div.separador:after{
 	top:34px;
-}
-
-/*-------------------------
--        diasSemana       -
--------------------------*/
-#reloj .diasSemana{
-	font-size:12px;
-	position:absolute;
-	width:100%;
-	top:10px;
-	left:0;
-	text-align:center;
-}
-#reloj .diasSemana span{
-	opacity:0.2;
-	padding:0 10px;
-}
-#reloj .diasSemana span.active{
-	opacity:1;
 }
 
 /*-------------------------

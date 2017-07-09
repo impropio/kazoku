@@ -23,6 +23,7 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/reloj.js"></script>
 	</head>
 	<body>
+	<%@ include file="common/mensajes.jsp" %>
 		<div class="contenedor">
 			<div class="col-md-8 alto-100">
 				<div class="row alto-25">
@@ -33,6 +34,7 @@
 							<!-- <div class="ampm"></div> -->
 							<div class="alarm"></div>
 							<div class="digitos"></div>
+							<div class="fecha"></div>
 						</div>
 					</div>
 					<div class="col-md-4">
