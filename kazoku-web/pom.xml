@@ -142,7 +142,7 @@
 					<replacements>
 						<replacement>
 							<token>#APP_VERSION#</token>
-							<value>V1.0_${yearMonthDay}</value>
+							<value>V0.0</value>
 						</replacement>
 					</replacements>
 				</configuration>

@@ -7,6 +7,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.francisco.kazoku.comunicacion.dto.CiudadClima;
@@ -28,7 +31,7 @@ public class PrediccionClimaImpl implements PrediccionClimaI{
 
     @Override
     public CiudadClima getPredicciones() {
-        String b = "";
+        String resultado = "";
         try {
             String MontarUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=7&units=metric&appid=77cd5a8bc3da25900b074a04e40a5534";
             final URL url = new URL(MontarUrl);
@@ -49,13 +52,17 @@ public class PrediccionClimaImpl implements PrediccionClimaI{
                         sb.append(line+"\n");
                     }
                     br.close();
-                   b = sb.toString();
+                    resultado = sb.toString();
             }
             
-            JsonObject obj = new JsonParser().parse(jsonString).getAsJsonObject();
+            JSONObject objJson = (JSONObject) new JSONParser().parse(resultado);
+            Object ciudad = objJson.get("city");
             
         } catch (MalformedURLException e) {
         } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }catch(ParseException e){
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
