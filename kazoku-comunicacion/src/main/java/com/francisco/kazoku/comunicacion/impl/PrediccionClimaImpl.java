@@ -16,7 +16,6 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.francisco.kazoku.comunicacion.dto.CiudadClima;
 import com.francisco.kazoku.comunicacion.dto.PrediccionClima;
