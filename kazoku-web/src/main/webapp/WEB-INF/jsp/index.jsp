@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
@@ -14,6 +15,7 @@
 		<!-- propios -->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/general.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reloj.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/predicciones.css">
 		
 		<!-- javaScript -->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery-1.11.2.js"></script>
@@ -52,7 +54,14 @@
 					</div>
 				</div>
 				<div class="row alto-25">
-					<h1>Tiempo próximos 7 dias</h1>
+					<%-- <h1>Tiempo próximos 7 dias</h1> --%>
+					<c:forEach var="predicciones" items="${predicciones}" varStatus="loop">
+						<div class="predicciones">
+							<%-- <h3>${loop.index}</h3> --%>
+							<img src="${pageContext.request.contextPath}/resources/img/iconos_clima/${predicciones.icono}.png" alt="prediccion">
+							<span>${predicciones.temperaturaMaxima}º \ ${predicciones.temperaturaMinima}º</span>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="col-md-4 alto-100">

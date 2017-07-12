@@ -1,9 +1,16 @@
 package com.francisco.kazoku.comunicacion.dto;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
+/**
+ * 
+ * @author Francisco Moro
+ *
+ */
 public class PrediccionClima{
     
+    private Date fecha;
 	private BigDecimal temperaturaDia;
 	private BigDecimal temperaturaMinima;
 	private BigDecimal temperaturaMaxima;
@@ -22,6 +29,20 @@ public class PrediccionClima{
 	private BigDecimal cantidadLluvia;
 	private BigDecimal cantidadNieve;
 	
+	/**
+	 * 
+	 * @return the fecha
+	 */
+    public Date getFecha(){
+        return fecha;
+    }
+    /**
+     * 
+     * @param fecha
+     */
+    public void setFecha(Date fecha){
+        this.fecha = fecha;
+    }
     /**
      * @return the temperaturaDia
      */

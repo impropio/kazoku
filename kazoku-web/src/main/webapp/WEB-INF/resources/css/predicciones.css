@@ -1,0 +1,8 @@
+.predicciones{
+	display: inline-block;
+	width: 13%;
+	height: 100%;
+}
+.predicciones img{
+	width: 90%;
+}

@@ -7,7 +7,9 @@ import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.json.simple.JSONArray;
@@ -65,6 +67,8 @@ public class PrediccionClimaDaoImpl implements PrediccionClimaDaoI{
             for(Object prediccionJson : listaPrediccionJson){
                 if(prediccionJson instanceof JSONObject){
                     PrediccionClima pred = new PrediccionClima();
+                    Timestamp stamp = new Timestamp(Long.parseLong(((JSONObject) prediccionJson).get("dt").toString()));
+                    pred.setFecha(new Date(stamp.getTime()));
                     JSONObject temperaturas = (JSONObject)((JSONObject) prediccionJson).get("temp");
                     pred.setTemperaturaDia(new BigDecimal(temperaturas.get("day").toString()));
                     pred.setTemperaturaMinima(new BigDecimal(temperaturas.get("min").toString()));
