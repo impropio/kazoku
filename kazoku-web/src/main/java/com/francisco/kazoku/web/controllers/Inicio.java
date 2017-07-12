@@ -9,8 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.francisco.kazoku.comunicacion.impl.PrediccionClimaImpl;
-import com.francisco.kazoku.comunicacion.interfaces.PrediccionClimaI;
+import com.francisco.kazoku.servicios.interfaces.PrediccionClimaServiceI;
 
 @Controller
 @RequestMapping(value = "/")
@@ -19,13 +18,12 @@ public class Inicio{
     @Value("${app.web.inicio}")
     private String webInicio;
     
-    
-    PrediccionClimaI a;
+    @Autowired
+    PrediccionClimaServiceI prediccion;
     
     @RequestMapping
     public ModelAndView masterLogin(final HttpSession session, final ModelMap model){
-        a = new PrediccionClimaImpl();
-        a.getPredicciones();
+        prediccion.getPredicciones();
         return new ModelAndView(webInicio);
     }
     
