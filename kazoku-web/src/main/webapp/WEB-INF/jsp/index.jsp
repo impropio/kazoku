@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%-- <%@ page import="com.francisco.kazoku.web.utiles.Utiles" %> --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<jsp:useBean id="util" class="com.francisco.kazoku.web.utiles.Utiles"/>
 
 <!DOCTYPE html>
 <html>
@@ -44,9 +46,10 @@
 					</div>
 				</div>
 				<div class="row alto-50">
-					<h1>Tiempo actual</h1>
-					<div class="col-md-8">
-						<h3>Imagen de la predicción</h3>
+					<div class="col-md-8 prediccion">
+						<img src="${pageContext.request.contextPath}/resources/img/iconos_clima/${prediccionActual.predicciones[0].icono}.png" alt="prediccion">
+						<h3 class="titulo_dia">${prediccionActual.predicciones[0].climaDescripcion}</h3>
+						<%-- <span>${prediccionActual.predicciones[0].temperaturaMaxima}º \ ${prediccionActual.predicciones[0].temperaturaMinima}º</span> --%>
 					</div>
 					<div class="col-md-4">
 						<h3>Datos del tiempo, temperatura, humedad...</h3>
@@ -55,12 +58,14 @@
 				</div>
 				<div class="row alto-25">
 					<%-- <h1>Tiempo próximos 7 dias</h1> --%>
-					<c:forEach var="predicciones" items="${predicciones}" varStatus="loop">
-						<div class="predicciones">
-							<%-- <h3>${loop.index}</h3> --%>
-							<img src="${pageContext.request.contextPath}/resources/img/iconos_clima/${predicciones.icono}.png" alt="prediccion">
-							<span>${predicciones.temperaturaMaxima}º \ ${predicciones.temperaturaMinima}º</span>
-						</div>
+					<c:forEach var="prediccion" items="${predicciones}" varStatus="loop">
+						<c:if test="${loop.index > 0}">
+							<div class="predicciones">
+								<span class="titulo_dia"><spring:message code="nombre.dias.semana.${util.fechaCorta(prediccion.fecha, 'u')}"/></span>
+								<img src="${pageContext.request.contextPath}/resources/img/iconos_clima/${prediccion.icono}.png" alt="prediccion">
+								<span>${prediccion.temperaturaMaxima}º \ ${prediccion.temperaturaMinima}º</span>
+							</div>
+						</c:if>
 					</c:forEach>
 				</div>
 			</div>

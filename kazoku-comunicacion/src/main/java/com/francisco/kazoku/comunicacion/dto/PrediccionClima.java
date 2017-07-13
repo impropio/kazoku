@@ -11,6 +11,7 @@ import java.util.Date;
 public class PrediccionClima{
     
     private Date fecha;
+    private BigDecimal temperatura;
 	private BigDecimal temperaturaDia;
 	private BigDecimal temperaturaMinima;
 	private BigDecimal temperaturaMaxima;
@@ -22,6 +23,7 @@ public class PrediccionClima{
 	private String clima;
 	private String climaDescripcion;
 	private String icono;
+	private BigDecimal visibilidad;
 	private BigDecimal velocidadViento;
 	private BigDecimal direccionViento;
 	private BigDecimal velocidadRafagaViento;
@@ -42,6 +44,18 @@ public class PrediccionClima{
      */
     public void setFecha(Date fecha){
         this.fecha = fecha;
+    }
+    /**
+     * @return the temperatura
+     */
+    public BigDecimal getTemperatura() {
+        return temperatura;
+    }
+    /**
+     * @param temperatura the temperatura to set
+     */
+    public void setTemperatura(BigDecimal temperatura) {
+        this.temperatura = temperatura;
     }
     /**
      * @return the temperaturaDia
@@ -174,6 +188,18 @@ public class PrediccionClima{
      */
     public void setIcono(String icono) {
         this.icono = icono;
+    }
+    /**
+     * @return the visibilidad
+     */
+    public BigDecimal getVisibilidad() {
+        return visibilidad;
+    }
+    /**
+     * @param velocidadViento the velocidadViento to set
+     */
+    public void setVisibilidad(BigDecimal visibilidad) {
+        this.visibilidad = visibilidad;
     }
     /**
      * @return the velocidadViento

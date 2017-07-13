@@ -2,6 +2,7 @@ package com.francisco.kazoku.servicios.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 import com.francisco.kazoku.comunicacion.dto.PrediccionClima;
 
@@ -15,6 +16,8 @@ public class PrediccionClimaDto implements Serializable{
     /** Constante serialVersionUID. */
     private static final long serialVersionUID = -5531237834121758458L;
     
+    private Date fecha;
+    private BigDecimal temperatura;
     private BigDecimal temperaturaDia;
 	private BigDecimal temperaturaMinima;
 	private BigDecimal temperaturaMaxima;
@@ -26,14 +29,15 @@ public class PrediccionClimaDto implements Serializable{
 	private String clima;
 	private String climaDescripcion;
 	private String icono;
+	private BigDecimal visibilidad;
 	private BigDecimal velocidadViento;
 	private BigDecimal direccionViento;
 	private BigDecimal velocidadRafagaViento;
 	private BigDecimal nubosidad;
 	private BigDecimal cantidadLluvia;
 	private BigDecimal cantidadNieve;
-	
-	/**
+
+    /**
 	 * Constructor sin parametros
 	 */
 	public PrediccionClimaDto(){
@@ -43,6 +47,7 @@ public class PrediccionClimaDto implements Serializable{
 	/**
 	 * Constructor con parámetros
 	 * 
+	 * @param fecha
 	 * @param temperaturaDia
 	 * @param temperaturaMinima
 	 * @param temperaturaMaxima
@@ -61,11 +66,13 @@ public class PrediccionClimaDto implements Serializable{
 	 * @param cantidadLluvia
 	 * @param cantidadNieve
 	 */
-	public PrediccionClimaDto(BigDecimal temperaturaDia, BigDecimal temperaturaMinima, BigDecimal temperaturaMaxima,
-	        BigDecimal temperaturaNoche, BigDecimal temperaturaAtardecer, BigDecimal temperaturaAmanecer,
-	        BigDecimal presion, BigDecimal humedad, String clima, String climaDescripcion, String icono,
-	        BigDecimal velocidadViento, BigDecimal direccionViento, BigDecimal velocidadRafagaViento,
-	        BigDecimal nubosidad, BigDecimal cantidadLluvia, BigDecimal cantidadNieve){
+	public PrediccionClimaDto(Date fecha, BigDecimal temperatura, BigDecimal temperaturaDia, BigDecimal temperaturaMinima, 
+	        BigDecimal temperaturaMaxima, BigDecimal temperaturaNoche, BigDecimal temperaturaAtardecer, 
+	        BigDecimal temperaturaAmanecer, BigDecimal presion, BigDecimal humedad, String clima, String climaDescripcion, 
+	        String icono, BigDecimal visibilidad, BigDecimal velocidadViento, BigDecimal direccionViento, 
+	        BigDecimal velocidadRafagaViento, BigDecimal nubosidad, BigDecimal cantidadLluvia, BigDecimal cantidadNieve){
+	    this.fecha = fecha;
+	    this.temperatura = temperatura;
 	    this.temperaturaDia = temperaturaDia;
 	    this.temperaturaMinima = temperaturaMinima;
 	    this.temperaturaMaxima = temperaturaMaxima;
@@ -77,6 +84,7 @@ public class PrediccionClimaDto implements Serializable{
 	    this.clima = clima;
 	    this.climaDescripcion = climaDescripcion;
 	    this.icono = icono;
+	    this.visibilidad = visibilidad;
 	    this.velocidadViento = velocidadViento;
 	    this.direccionViento = direccionViento;
 	    this.velocidadRafagaViento = velocidadRafagaViento;
@@ -92,6 +100,8 @@ public class PrediccionClimaDto implements Serializable{
 	 * @return
 	 */
 	public PrediccionClimaDto objectToDto(PrediccionClima prediccion){
+	    this.fecha = prediccion.getFecha();
+	    this.temperatura = prediccion.getTemperatura();
 	    this.temperaturaDia = prediccion.getTemperaturaDia();
         this.temperaturaMinima = prediccion.getTemperaturaMinima();
         this.temperaturaMaxima = prediccion.getTemperaturaMaxima();
@@ -103,6 +113,7 @@ public class PrediccionClimaDto implements Serializable{
         this.clima = prediccion.getClima();
         this.climaDescripcion = prediccion.getClimaDescripcion();
         this.icono = prediccion.getIcono();
+        this.visibilidad = prediccion.getVisibilidad();
         this.velocidadViento = prediccion.getVelocidadViento();
         this.direccionViento = prediccion.getDireccionViento();
         this.velocidadRafagaViento = prediccion.getVelocidadRafagaViento();
@@ -112,6 +123,30 @@ public class PrediccionClimaDto implements Serializable{
 	    return this;
 	}
 	
+	/**
+     * @return the fecha
+     */
+    public Date getFecha() {
+        return fecha;
+    }
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+    /**
+     * @return the temperatura
+     */
+    public BigDecimal getTemperatura() {
+        return temperatura;
+    }
+    /**
+     * @param temperatura the temperatura to set
+     */
+    public void setTemperatura(BigDecimal temperatura) {
+        this.temperatura = temperatura;
+    }
     /**
      * @return the temperaturaDia
      */
@@ -243,6 +278,18 @@ public class PrediccionClimaDto implements Serializable{
      */
     public void setIcono(String icono) {
         this.icono = icono;
+    }
+    /**
+     * @return the visibilidad
+     */
+    public BigDecimal getVisibilidad() {
+        return visibilidad;
+    }
+    /**
+     * @param visibilidad the visibilidad to set
+     */
+    public void setVisibilidad(BigDecimal visibilidad) {
+        this.visibilidad = visibilidad;
     }
     /**
      * @return the velocidadViento

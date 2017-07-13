@@ -1,7 +1,25 @@
+.prediccion{
+	height: 100%;
+}
+.prediccion .titulo_dia{
+	display: block;
+	margin-top: -5%;
+	text-align: center;
+}
+.prediccion img{
+	display: block;
+	height: 90%;
+	margin: 0 auto;
+}
+
 .predicciones{
 	display: inline-block;
 	width: 13%;
 	height: 100%;
+}
+.predicciones span{
+	display: block;
+	text-align: center;
 }
 .predicciones img{
 	width: 90%;

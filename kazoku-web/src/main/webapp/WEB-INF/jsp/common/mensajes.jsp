@@ -3,7 +3,7 @@
 
 <script type="text/javascript" charset="UTF-8">
 var diccionario = {
-		diaSemanaNombres:'<spring:message code="nombre.dias.semana"/>',
+		diaSemanaNombres:'<spring:message code="nombre.dias.semana.corto"/>',
 		mesNombres:'<spring:message code="nombre.meses"  text=""/>',
 		separadorFecha:'<spring:message code="separador.fecha"  text=""/>'
 	};

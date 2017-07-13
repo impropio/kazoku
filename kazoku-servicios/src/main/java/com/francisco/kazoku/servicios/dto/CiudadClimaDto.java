@@ -3,6 +3,7 @@ package com.francisco.kazoku.servicios.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.francisco.kazoku.comunicacion.dto.CiudadClima;
@@ -19,8 +20,8 @@ public class CiudadClimaDto implements Serializable{
     private BigDecimal latitud;
     private String pais;
     private Integer poblacion;
-    private String amanecer;
-    private String atardecer;
+    private Date amanecer;
+    private Date atardecer;
     private List<PrediccionClimaDto> predicciones;
     
     /**
@@ -43,7 +44,7 @@ public class CiudadClimaDto implements Serializable{
      * @param atardecer
      */
     public CiudadClimaDto(String id, String nombre, BigDecimal longitud, BigDecimal latitud, 
-            String pais, Integer poblacion, String amanecer, String atardecer){
+            String pais, Integer poblacion, Date amanecer, Date atardecer){
         this.id = id;
         this.nombre = nombre;
         this.longitud = longitud;
@@ -154,25 +155,25 @@ public class CiudadClimaDto implements Serializable{
     /**
      * @return the amanecer
      */
-    public String getAmanecer() {
+    public Date getAmanecer() {
         return amanecer;
     }
     /**
      * @param amanecer the amanecer to set
      */
-    public void setAmanecer(String amanecer) {
+    public void setAmanecer(Date amanecer) {
         this.amanecer = amanecer;
     }
     /**
      * @return the atardecer
      */
-    public String getAtardecer() {
+    public Date getAtardecer() {
         return atardecer;
     }
     /**
      * @param atardecer the atardecer to set
      */
-    public void setAtardecer(String atardecer) {
+    public void setAtardecer(Date atardecer) {
         this.atardecer = atardecer;
     }
     /**

@@ -23,6 +23,7 @@ public class Inicio{
     
     @RequestMapping
     public ModelAndView masterLogin(final HttpSession session, final ModelMap model){
+        model.addAttribute("prediccionActual", prediccion.getPrediccionActual());
         model.addAttribute("predicciones", prediccion.getPredicciones().getPredicciones());
         return new ModelAndView(webInicio, "model", model);
     }

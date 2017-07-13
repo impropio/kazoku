@@ -11,6 +11,12 @@ public interface PrediccionClimaDaoI {
     
     /**
      * 
+     * @return datos de la ciudad con la predicción actual
+     */
+    CiudadClima getPrediccionActual();
+    
+    /**
+     * 
      * @return datos de la ciudad con la predicción para los próximos dias
      */
     CiudadClima getPredicciones();

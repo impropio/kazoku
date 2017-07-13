@@ -1,6 +1,7 @@
 package com.francisco.kazoku.comunicacion.dto;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 public class CiudadClima{
@@ -11,8 +12,8 @@ public class CiudadClima{
     private BigDecimal latitud;
     private String pais;
     private Integer poblacion;
-    private String amanecer;
-    private String atardecer;
+    private Date amanecer;
+    private Date atardecer;
     private List<PrediccionClima> predicciones;
     
     /**
@@ -90,25 +91,25 @@ public class CiudadClima{
     /**
      * @return the amanecer
      */
-    public String getAmanecer() {
+    public Date getAmanecer() {
         return amanecer;
     }
     /**
      * @param amanecer the amanecer to set
      */
-    public void setAmanecer(String amanecer) {
+    public void setAmanecer(Date amanecer) {
         this.amanecer = amanecer;
     }
     /**
      * @return the atardecer
      */
-    public String getAtardecer() {
+    public Date getAtardecer() {
         return atardecer;
     }
     /**
      * @param atardecer the atardecer to set
      */
-    public void setAtardecer(String atardecer) {
+    public void setAtardecer(Date atardecer) {
         this.atardecer = atardecer;
     }
     /**

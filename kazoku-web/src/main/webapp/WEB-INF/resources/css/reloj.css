@@ -4,7 +4,6 @@
 #reloj{
 	height: 100%;
 	display: table;
-	background-color:#F0F3F4;
 	color:#272e38;
 }
 #reloj .display{
