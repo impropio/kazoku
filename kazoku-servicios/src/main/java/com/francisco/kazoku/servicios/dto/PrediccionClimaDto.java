@@ -31,7 +31,7 @@ public class PrediccionClimaDto implements Serializable{
 	private String icono;
 	private BigDecimal visibilidad;
 	private BigDecimal velocidadViento;
-	private BigDecimal direccionViento;
+	private String direccionViento;
 	private BigDecimal velocidadRafagaViento;
 	private BigDecimal nubosidad;
 	private BigDecimal cantidadLluvia;
@@ -69,7 +69,7 @@ public class PrediccionClimaDto implements Serializable{
 	public PrediccionClimaDto(Date fecha, BigDecimal temperatura, BigDecimal temperaturaDia, BigDecimal temperaturaMinima, 
 	        BigDecimal temperaturaMaxima, BigDecimal temperaturaNoche, BigDecimal temperaturaAtardecer, 
 	        BigDecimal temperaturaAmanecer, BigDecimal presion, BigDecimal humedad, String clima, String climaDescripcion, 
-	        String icono, BigDecimal visibilidad, BigDecimal velocidadViento, BigDecimal direccionViento, 
+	        String icono, BigDecimal visibilidad, BigDecimal velocidadViento, String direccionViento, 
 	        BigDecimal velocidadRafagaViento, BigDecimal nubosidad, BigDecimal cantidadLluvia, BigDecimal cantidadNieve){
 	    this.fecha = fecha;
 	    this.temperatura = temperatura;
@@ -115,7 +115,33 @@ public class PrediccionClimaDto implements Serializable{
         this.icono = prediccion.getIcono();
         this.visibilidad = prediccion.getVisibilidad();
         this.velocidadViento = prediccion.getVelocidadViento();
-        this.direccionViento = prediccion.getDireccionViento();
+        if(prediccion.getDireccionViento() != null){
+            BigDecimal direccion = prediccion.getDireccionViento();
+            if(direccion.compareTo(new BigDecimal(337.5)) >= 0 || direccion.compareTo(new BigDecimal(22.5)) <= 0){
+                this.direccionViento = "n";
+            }
+            if(direccion.compareTo(new BigDecimal(22.5)) == 1 && direccion.compareTo(new BigDecimal(67.5)) == -1){
+                this.direccionViento = "ne";
+            }
+            if(direccion.compareTo(new BigDecimal(67.5)) >= 0 && direccion.compareTo(new BigDecimal(112.5)) <= 0){
+                this.direccionViento = "e";
+            }
+            if(direccion.compareTo(new BigDecimal(112.5)) == 1 && direccion.compareTo(new BigDecimal(157.5)) == -1){
+                this.direccionViento = "se";
+            }
+            if(direccion.compareTo(new BigDecimal(157.5)) >= 0 && direccion.compareTo(new BigDecimal(202.5)) <= 0){
+                this.direccionViento = "s";
+            }
+            if(direccion.compareTo(new BigDecimal(202.5)) == 1 && direccion.compareTo(new BigDecimal(247.5)) == -1){
+                this.direccionViento = "so";
+            }
+            if(direccion.compareTo(new BigDecimal(247.5)) >= 0 && direccion.compareTo(new BigDecimal(292.5)) <= 0){
+                this.direccionViento = "o";
+            }
+            if(direccion.compareTo(new BigDecimal(292.5)) == 1 && direccion.compareTo(new BigDecimal(337.5)) == -1){
+                this.direccionViento = "no";
+            }
+        }
         this.velocidadRafagaViento = prediccion.getVelocidadRafagaViento();
         this.nubosidad = prediccion.getNubosidad();
         this.cantidadLluvia = prediccion.getCantidadLluvia();
@@ -306,13 +332,13 @@ public class PrediccionClimaDto implements Serializable{
     /**
      * @return the direccionViento
      */
-    public BigDecimal getDireccionViento() {
+    public String getDireccionViento() {
         return direccionViento;
     }
     /**
      * @param direccionViento the direccionViento to set
      */
-    public void setDireccionViento(BigDecimal direccionViento) {
+    public void setDireccionViento(String direccionViento) {
         this.direccionViento = direccionViento;
     }
     /**

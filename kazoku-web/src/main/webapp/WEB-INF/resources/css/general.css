@@ -1,3 +1,12 @@
+.rojo{
+	background-color: red;
+}
+.azul{
+	background-color: blue;
+}
+.verde{
+	background-color: green;
+}
 body{
 	height: 100vh;
 	background-color:#F0F3F4;
@@ -20,4 +29,31 @@ body{
 }
 .alto-100{
 	height: 100vh;
+}
+.alto-porc-25{
+	height: 25%;
+}
+.alto-porc-50{
+	height: 50%;
+}
+.alto-porc-75{
+	height: 75%;
+}
+.alto-porc-100{
+	height: 100%;
+}
+.ancho-50{
+	display: inline-block;
+	width: 49%;
+}
+.ancho-100{
+	display: block;
+	width: 100%;
+}
+.sin-margen{
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.t3{
+	font-size: 1.5em;
 }

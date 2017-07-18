@@ -79,9 +79,7 @@ public class PrediccionClimaDaoImpl implements PrediccionClimaDaoI{
             
             JSONObject vientoJson = (JSONObject) objJson.get("wind");
             pred.setVelocidadViento(new BigDecimal(((JSONObject) vientoJson).get("speed").toString()));
-            if(((JSONObject) vientoJson).get("deg") != null){
-                pred.setDireccionViento(new BigDecimal(((JSONObject) vientoJson).get("deg").toString()));
-            }
+            pred.setDireccionViento(new BigDecimal(((JSONObject) vientoJson).get("deg").toString()));
             
             JSONObject nubosidadJson = (JSONObject) objJson.get("clouds");
             pred.setNubosidad(new BigDecimal(((JSONObject) nubosidadJson).get("all").toString()));

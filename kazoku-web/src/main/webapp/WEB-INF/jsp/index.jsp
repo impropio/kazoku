@@ -31,7 +31,7 @@
 		<div class="contenedor">
 			<div class="col-md-8 alto-100">
 				<div class="row alto-25">
-					<div id="reloj" class="col-md-8">
+					<div id="reloj" class="col-md-7">
 						<!-- <h1>Fecha / hora</h1> -->
 						<div class="display">
 							<div class="diasSemana"></div>
@@ -41,19 +41,55 @@
 							<div class="fecha"></div>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-5">
 						<h3>Iconos del menú</h3>
 					</div>
 				</div>
 				<div class="row alto-50">
-					<div class="col-md-8 prediccion">
+					<div class="col-md-7 prediccion">
 						<img src="${pageContext.request.contextPath}/resources/img/iconos_clima/${prediccionActual.predicciones[0].icono}.png" alt="prediccion">
 						<h3 class="titulo_dia">${prediccionActual.predicciones[0].climaDescripcion}</h3>
 						<%-- <span>${prediccionActual.predicciones[0].temperaturaMaxima}º \ ${prediccionActual.predicciones[0].temperaturaMinima}º</span> --%>
 					</div>
-					<div class="col-md-4">
-						<h3>Datos del tiempo, temperatura, humedad...</h3>
-						<h3>Datos dentro de casa, temperatura, humedad...</h3>
+					<div class="sin-margen alto-porc-100 col-md-5">
+						<div class="alto-porc-50 exterior">
+							<span class="t3">${prediccionActual.nombre}:</span>
+							<span class="ancho-100">
+								<span class="ancho-50"><spring:message code="temp.actual"/>: ${prediccionActual.predicciones[0].temperatura}º</span>
+								<span class="ancho-50"><spring:message code="prediccion"/>: ${prediccionActual.predicciones[0].clima}</span>
+							</span>
+							<span class="ancho-100">${prediccionActual.predicciones[0].climaDescripcion}</span>
+							<span class="ancho-100">
+								<span class="ancho-50"><spring:message code="humedad"/>: ${prediccionActual.predicciones[0].humedad}</span>
+								<span class="ancho-50"><spring:message code="presion"/>: ${prediccionActual.predicciones[0].presion}</span>
+							</span>
+							<span class="ancho-100">
+								<span class="ancho-50"><spring:message code="temp.max"/>: ${prediccionActual.predicciones[0].temperaturaMaxima}º</span>
+								<span class="ancho-50"><spring:message code="temp.min"/>: ${prediccionActual.predicciones[0].temperaturaMinima}º</span>
+							</span>
+							<span class="ancho-100">
+								<span class="ancho-50"><spring:message code="nubosidad"/>: ${prediccionActual.predicciones[0].nubosidad}</span>
+								<span class="ancho-50"><spring:message code="visibilidad"/>: ${prediccionActual.predicciones[0].visibilidad}</span>
+							</span>
+							<span class="ancho-100">
+								<span class="ancho-50"><spring:message code="viento.velocidad"/>: ${prediccionActual.predicciones[0].velocidadViento}</span>
+								<span class="ancho-50"><spring:message code="viento.direccion"/>: <spring:message code="viento.direccion.${prediccionActual.predicciones[0].direccionViento}"/></span>
+							</span>
+							<span class="ancho-100">
+								<span class="ancho-50"><spring:message code="amanecer"/>: ${util.fechaCorta(prediccionActual.amanecer, 'HH:mm:ss')}</span>
+								<span class="ancho-50"><spring:message code="atardecer"/>: ${util.fechaCorta(prediccionActual.atardecer, 'HH:mm:ss')}</span>
+							</span>
+						</div>
+						<div class="alto-porc-50 interior">
+							<span class="t3"><spring:message code="interior"/>:</span>
+							<span class="ancho-100">
+								<span class="ancho-100"><spring:message code="temp.actual"/>: Temperatura interior º</span>
+							</span>
+							<span class="ancho-100">
+								<span class="ancho-50"><spring:message code="humedad"/>: Humedad interior</span>
+								<span class="ancho-50"><spring:message code="presion"/>: Presión interior</span>
+							</span>
+						</div>
 					</div>
 				</div>
 				<div class="row alto-25">
