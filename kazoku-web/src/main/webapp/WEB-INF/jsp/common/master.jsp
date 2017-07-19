@@ -5,9 +5,9 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<meta name="description" content="Rapiro">
+		<meta name="description" content="Kazoku">
 		<meta name="author" content="Francisco Moro">
-		<title><spring:message code="title"  text="Rapiro"/></title>
+		<title><spring:message code="title"  text="Kazoku"/></title>
 	
 		<!-- styles -->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/bootstrap-3.3.7/css/bootstrap.min.css">
@@ -20,7 +20,7 @@
 	</head>
 	<body onunload="">
 		<tiles:insertAttribute name="header" />
-		<div class="contenedor" id="contenedor">
+		<div class="contenedor" id="contenedor" style="margin-top: 80px;">
 			<tiles:insertAttribute name="body" />
 		</div>
 		<tiles:insertAttribute name="footer" />

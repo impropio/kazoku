@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- <%@ page import="com.francisco.kazoku.web.utiles.Utiles" %> --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <jsp:useBean id="util" class="com.francisco.kazoku.web.utiles.Utiles"/>
 
 <!DOCTYPE html>
@@ -14,6 +14,8 @@
 	
 		<!-- styles -->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/bootstrap-3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/font-awesome/css/font-awesome.min.css">
+		
 		<!-- propios -->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/general.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reloj.css">
@@ -25,6 +27,7 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/moment/moment.min.js"></script>
 		<!-- propios -->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/reloj.js"></script>
+		
 	</head>
 	<body>
 	<%@ include file="common/mensajes.jsp" %>
@@ -42,13 +45,19 @@
 						</div>
 					</div>
 					<div class="col-md-5">
-						<h3>Iconos del menú</h3>
+						<em class="fa fa-2x fa-cog"></em>
+						<em class="fa fa-2x fa-sun-o"></em>
+						<em class="fa fa-2x fa-moon-o"></em>
+						<em class="fa fa-2x fa-user-o"></em>
+						<em class="fa fa-2x fa-address-card-o"></em>
+						<em class="fa fa-2x fa-shopping-cart"></em>
+						<em class="fa fa-2x fa-wifi"></em>
 					</div>
 				</div>
 				<div class="row alto-50">
 					<div class="col-md-7 prediccion">
-						<img src="${pageContext.request.contextPath}/resources/img/iconos_clima/${prediccionActual.predicciones[0].icono}.png" alt="prediccion">
-						<h3 class="titulo_dia">${prediccionActual.predicciones[0].climaDescripcion}</h3>
+						<img src="${pageContext.request.contextPath}/resources/img/iconos_clima/max/${prediccionActual.predicciones[0].icono}.png" alt="prediccion">
+						<%-- <h3 class="titulo_dia">${prediccionActual.predicciones[0].climaDescripcion}</h3> --%>
 						<%-- <span>${prediccionActual.predicciones[0].temperaturaMaxima}º \ ${prediccionActual.predicciones[0].temperaturaMinima}º</span> --%>
 					</div>
 					<div class="sin-margen alto-porc-100 col-md-5">
@@ -98,7 +107,7 @@
 						<c:if test="${loop.index > 0}">
 							<div class="predicciones">
 								<span class="titulo_dia"><spring:message code="nombre.dias.semana.${util.fechaCorta(prediccion.fecha, 'u')}"/></span>
-								<img src="${pageContext.request.contextPath}/resources/img/iconos_clima/${prediccion.icono}.png" alt="prediccion">
+								<img src="${pageContext.request.contextPath}/resources/img/iconos_clima/min/${prediccion.icono}.png" alt="prediccion">
 								<span>${prediccion.temperaturaMaxima}º \ ${prediccion.temperaturaMinima}º</span>
 							</div>
 						</c:if>

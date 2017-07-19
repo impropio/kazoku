@@ -17,25 +17,25 @@ public class PrediccionClimaDto implements Serializable{
     private static final long serialVersionUID = -5531237834121758458L;
     
     private Date fecha;
-    private BigDecimal temperatura;
-    private BigDecimal temperaturaDia;
-	private BigDecimal temperaturaMinima;
-	private BigDecimal temperaturaMaxima;
-	private BigDecimal temperaturaNoche;
-	private BigDecimal temperaturaAtardecer;
-	private BigDecimal temperaturaAmanecer;
-	private BigDecimal presion;
-	private BigDecimal humedad;
+    private String temperatura;
+    private String temperaturaDia;
+	private String temperaturaMinima;
+	private String temperaturaMaxima;
+	private String temperaturaNoche;
+	private String temperaturaAtardecer;
+	private String temperaturaAmanecer;
+	private String presion;
+	private String humedad;
 	private String clima;
 	private String climaDescripcion;
 	private String icono;
-	private BigDecimal visibilidad;
-	private BigDecimal velocidadViento;
+	private String visibilidad;
+	private String velocidadViento;
 	private String direccionViento;
-	private BigDecimal velocidadRafagaViento;
-	private BigDecimal nubosidad;
-	private BigDecimal cantidadLluvia;
-	private BigDecimal cantidadNieve;
+	private String velocidadRafagaViento;
+	private String nubosidad;
+	private String cantidadLluvia;
+	private String cantidadNieve;
 
     /**
 	 * Constructor sin parametros
@@ -66,11 +66,11 @@ public class PrediccionClimaDto implements Serializable{
 	 * @param cantidadLluvia
 	 * @param cantidadNieve
 	 */
-	public PrediccionClimaDto(Date fecha, BigDecimal temperatura, BigDecimal temperaturaDia, BigDecimal temperaturaMinima, 
-	        BigDecimal temperaturaMaxima, BigDecimal temperaturaNoche, BigDecimal temperaturaAtardecer, 
-	        BigDecimal temperaturaAmanecer, BigDecimal presion, BigDecimal humedad, String clima, String climaDescripcion, 
-	        String icono, BigDecimal visibilidad, BigDecimal velocidadViento, String direccionViento, 
-	        BigDecimal velocidadRafagaViento, BigDecimal nubosidad, BigDecimal cantidadLluvia, BigDecimal cantidadNieve){
+	public PrediccionClimaDto(Date fecha, String temperatura, String temperaturaDia, String temperaturaMinima, 
+	        String temperaturaMaxima, String temperaturaNoche, String temperaturaAtardecer, 
+	        String temperaturaAmanecer, String presion, String humedad, String clima, String climaDescripcion, 
+	        String icono, String visibilidad, String velocidadViento, String direccionViento, 
+	        String velocidadRafagaViento, String nubosidad, String cantidadLluvia, String cantidadNieve){
 	    this.fecha = fecha;
 	    this.temperatura = temperatura;
 	    this.temperaturaDia = temperaturaDia;
@@ -101,20 +101,20 @@ public class PrediccionClimaDto implements Serializable{
 	 */
 	public PrediccionClimaDto objectToDto(PrediccionClima prediccion){
 	    this.fecha = prediccion.getFecha();
-	    this.temperatura = prediccion.getTemperatura();
-	    this.temperaturaDia = prediccion.getTemperaturaDia();
-        this.temperaturaMinima = prediccion.getTemperaturaMinima();
-        this.temperaturaMaxima = prediccion.getTemperaturaMaxima();
-        this.temperaturaNoche = prediccion.getTemperaturaNoche();
-        this.temperaturaAtardecer = prediccion.getTemperaturaAtardecer();
-        this.temperaturaAmanecer = prediccion.getTemperaturaAmanecer();
-        this.presion = prediccion.getPresion();
-        this.humedad = prediccion.getHumedad();
+	    this.temperatura = (prediccion.getTemperatura() != null)?prediccion.getTemperatura().toString():"-";
+	    this.temperaturaDia = (prediccion.getTemperaturaDia() != null)?prediccion.getTemperaturaDia().toString():"-";
+        this.temperaturaMinima = (prediccion.getTemperaturaMinima() != null)?prediccion.getTemperaturaMinima().toString():"-";
+        this.temperaturaMaxima = (prediccion.getTemperaturaMaxima() != null)?prediccion.getTemperaturaMaxima().toString():"-";
+        this.temperaturaNoche = (prediccion.getTemperaturaNoche() != null)?prediccion.getTemperaturaNoche().toString():"-";
+        this.temperaturaAtardecer = (prediccion.getTemperaturaAtardecer() != null)?prediccion.getTemperaturaAtardecer().toString():"-";
+        this.temperaturaAmanecer = (prediccion.getTemperaturaAmanecer() != null)?prediccion.getTemperaturaAmanecer().toString():"-";
+        this.presion = (prediccion.getPresion() != null)?prediccion.getPresion().toString():"-";
+        this.humedad = (prediccion.getHumedad() != null)?prediccion.getHumedad().toString():"-";
         this.clima = prediccion.getClima();
         this.climaDescripcion = prediccion.getClimaDescripcion();
         this.icono = prediccion.getIcono();
-        this.visibilidad = prediccion.getVisibilidad();
-        this.velocidadViento = prediccion.getVelocidadViento();
+        this.visibilidad = (prediccion.getVisibilidad() != null)?prediccion.getVisibilidad().toString():"-";
+        this.velocidadViento = (prediccion.getVelocidadViento() != null)?prediccion.getVelocidadViento().toString():"-";
         if(prediccion.getDireccionViento() != null){
             BigDecimal direccion = prediccion.getDireccionViento();
             if(direccion.compareTo(new BigDecimal(337.5)) >= 0 || direccion.compareTo(new BigDecimal(22.5)) <= 0){
@@ -141,11 +141,13 @@ public class PrediccionClimaDto implements Serializable{
             if(direccion.compareTo(new BigDecimal(292.5)) == 1 && direccion.compareTo(new BigDecimal(337.5)) == -1){
                 this.direccionViento = "no";
             }
+        }else{
+            this.direccionViento = "sinDatos";
         }
-        this.velocidadRafagaViento = prediccion.getVelocidadRafagaViento();
-        this.nubosidad = prediccion.getNubosidad();
-        this.cantidadLluvia = prediccion.getCantidadLluvia();
-        this.cantidadNieve = prediccion.getCantidadNieve();
+        this.velocidadRafagaViento = (prediccion.getVelocidadRafagaViento() != null)?prediccion.getVelocidadRafagaViento().toString():"-";
+        this.nubosidad = (prediccion.getNubosidad() != null)?prediccion.getNubosidad().toString():"-";
+        this.cantidadLluvia = (prediccion.getCantidadLluvia() != null)?prediccion.getCantidadLluvia().toString():"-";
+        this.cantidadNieve = (prediccion.getCantidadNieve() != null)?prediccion.getCantidadNieve().toString():"-";
 	    return this;
 	}
 	
@@ -164,109 +166,109 @@ public class PrediccionClimaDto implements Serializable{
     /**
      * @return the temperatura
      */
-    public BigDecimal getTemperatura() {
+    public String getTemperatura() {
         return temperatura;
     }
     /**
      * @param temperatura the temperatura to set
      */
-    public void setTemperatura(BigDecimal temperatura) {
+    public void setTemperatura(String temperatura) {
         this.temperatura = temperatura;
     }
     /**
      * @return the temperaturaDia
      */
-    public BigDecimal getTemperaturaDia() {
+    public String getTemperaturaDia() {
         return temperaturaDia;
     }
     /**
      * @param temperaturaDia the temperaturaDia to set
      */
-    public void setTemperaturaDia(BigDecimal temperaturaDia) {
+    public void setTemperaturaDia(String temperaturaDia) {
         this.temperaturaDia = temperaturaDia;
     }
     /**
      * @return the temperaturaMinima
      */
-    public BigDecimal getTemperaturaMinima() {
+    public String getTemperaturaMinima() {
         return temperaturaMinima;
     }
     /**
      * @param temperaturaMinima the temperaturaMinima to set
      */
-    public void setTemperaturaMinima(BigDecimal temperaturaMinima) {
+    public void setTemperaturaMinima(String temperaturaMinima) {
         this.temperaturaMinima = temperaturaMinima;
     }
     /**
      * @return the temperaturaMaxima
      */
-    public BigDecimal getTemperaturaMaxima() {
+    public String getTemperaturaMaxima() {
         return temperaturaMaxima;
     }
     /**
      * @param temperaturaMaxima the temperaturaMaxima to set
      */
-    public void setTemperaturaMaxima(BigDecimal temperaturaMaxima) {
+    public void setTemperaturaMaxima(String temperaturaMaxima) {
         this.temperaturaMaxima = temperaturaMaxima;
     }
     /**
      * @return the temperaturaNoche
      */
-    public BigDecimal getTemperaturaNoche() {
+    public String getTemperaturaNoche() {
         return temperaturaNoche;
     }
     /**
      * @param temperaturaNoche the temperaturaNoche to set
      */
-    public void setTemperaturaNoche(BigDecimal temperaturaNoche) {
+    public void setTemperaturaNoche(String temperaturaNoche) {
         this.temperaturaNoche = temperaturaNoche;
     }
     /**
      * @return the temperaturaAtardecer
      */
-    public BigDecimal getTemperaturaAtardecer() {
+    public String getTemperaturaAtardecer() {
         return temperaturaAtardecer;
     }
     /**
      * @param temperaturaAtardecer the temperaturaAtardecer to set
      */
-    public void setTemperaturaAtardecer(BigDecimal temperaturaAtardecer) {
+    public void setTemperaturaAtardecer(String temperaturaAtardecer) {
         this.temperaturaAtardecer = temperaturaAtardecer;
     }
     /**
      * @return the temperaturaAmanecer
      */
-    public BigDecimal getTemperaturaAmanecer() {
+    public String getTemperaturaAmanecer() {
         return temperaturaAmanecer;
     }
     /**
      * @param temperaturaAmanecer the temperaturaAmanecer to set
      */
-    public void setTemperaturaAmanecer(BigDecimal temperaturaAmanecer) {
+    public void setTemperaturaAmanecer(String temperaturaAmanecer) {
         this.temperaturaAmanecer = temperaturaAmanecer;
     }
     /**
      * @return the presion
      */
-    public BigDecimal getPresion() {
+    public String getPresion() {
         return presion;
     }
     /**
      * @param presion the presion to set
      */
-    public void setPresion(BigDecimal presion) {
+    public void setPresion(String presion) {
         this.presion = presion;
     }
     /**
      * @return the humedad
      */
-    public BigDecimal getHumedad() {
+    public String getHumedad() {
         return humedad;
     }
     /**
      * @param humedad the humedad to set
      */
-    public void setHumedad(BigDecimal humedad) {
+    public void setHumedad(String humedad) {
         this.humedad = humedad;
     }
     /**
@@ -308,25 +310,25 @@ public class PrediccionClimaDto implements Serializable{
     /**
      * @return the visibilidad
      */
-    public BigDecimal getVisibilidad() {
+    public String getVisibilidad() {
         return visibilidad;
     }
     /**
      * @param visibilidad the visibilidad to set
      */
-    public void setVisibilidad(BigDecimal visibilidad) {
+    public void setVisibilidad(String visibilidad) {
         this.visibilidad = visibilidad;
     }
     /**
      * @return the velocidadViento
      */
-    public BigDecimal getVelocidadViento() {
+    public String getVelocidadViento() {
         return velocidadViento;
     }
     /**
      * @param velocidadViento the velocidadViento to set
      */
-    public void setVelocidadViento(BigDecimal velocidadViento) {
+    public void setVelocidadViento(String velocidadViento) {
         this.velocidadViento = velocidadViento;
     }
     /**
@@ -344,49 +346,49 @@ public class PrediccionClimaDto implements Serializable{
     /**
      * @return the velocidadRafagaViento
      */
-    public BigDecimal getVelocidadRafagaViento() {
+    public String getVelocidadRafagaViento() {
         return velocidadRafagaViento;
     }
     /**
      * @param velocidadRafagaViento the velocidadRafagaViento to set
      */
-    public void setVelocidadRafagaViento(BigDecimal velocidadRafagaViento) {
+    public void setVelocidadRafagaViento(String velocidadRafagaViento) {
         this.velocidadRafagaViento = velocidadRafagaViento;
     }
     /**
      * @return the nubosidad
      */
-    public BigDecimal getNubosidad() {
+    public String getNubosidad() {
         return nubosidad;
     }
     /**
      * @param nubosidad the nubosidad to set
      */
-    public void setNubosidad(BigDecimal nubosidad) {
+    public void setNubosidad(String nubosidad) {
         this.nubosidad = nubosidad;
     }
     /**
      * @return the cantidadLluvia
      */
-    public BigDecimal getCantidadLluvia() {
+    public String getCantidadLluvia() {
         return cantidadLluvia;
     }
     /**
      * @param cantidadLluvia the cantidadLluvia to set
      */
-    public void setCantidadLluvia(BigDecimal cantidadLluvia) {
+    public void setCantidadLluvia(String cantidadLluvia) {
         this.cantidadLluvia = cantidadLluvia;
     }
     /**
      * @return the cantidadNieve
      */
-    public BigDecimal getCantidadNieve() {
+    public String getCantidadNieve() {
         return cantidadNieve;
     }
     /**
      * @param cantidadNieve the cantidadNieve to set
      */
-    public void setCantidadNieve(BigDecimal cantidadNieve) {
+    public void setCantidadNieve(String cantidadNieve) {
         this.cantidadNieve = cantidadNieve;
     }
 	
