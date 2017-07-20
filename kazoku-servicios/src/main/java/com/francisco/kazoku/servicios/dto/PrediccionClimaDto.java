@@ -101,20 +101,20 @@ public class PrediccionClimaDto implements Serializable{
 	 */
 	public PrediccionClimaDto objectToDto(PrediccionClima prediccion){
 	    this.fecha = prediccion.getFecha();
-	    this.temperatura = (prediccion.getTemperatura() != null)?prediccion.getTemperatura().toString():"-";
-	    this.temperaturaDia = (prediccion.getTemperaturaDia() != null)?prediccion.getTemperaturaDia().toString():"-";
-        this.temperaturaMinima = (prediccion.getTemperaturaMinima() != null)?prediccion.getTemperaturaMinima().toString():"-";
-        this.temperaturaMaxima = (prediccion.getTemperaturaMaxima() != null)?prediccion.getTemperaturaMaxima().toString():"-";
-        this.temperaturaNoche = (prediccion.getTemperaturaNoche() != null)?prediccion.getTemperaturaNoche().toString():"-";
-        this.temperaturaAtardecer = (prediccion.getTemperaturaAtardecer() != null)?prediccion.getTemperaturaAtardecer().toString():"-";
-        this.temperaturaAmanecer = (prediccion.getTemperaturaAmanecer() != null)?prediccion.getTemperaturaAmanecer().toString():"-";
-        this.presion = (prediccion.getPresion() != null)?prediccion.getPresion().toString():"-";
-        this.humedad = (prediccion.getHumedad() != null)?prediccion.getHumedad().toString():"-";
+	    this.temperatura = (prediccion.getTemperatura() != null)?prediccion.getTemperatura().setScale(2).toString():"-";
+	    this.temperaturaDia = (prediccion.getTemperaturaDia() != null)?prediccion.getTemperaturaDia().setScale(2).toString():"-";
+        this.temperaturaMinima = (prediccion.getTemperaturaMinima() != null)?prediccion.getTemperaturaMinima().setScale(2).toString():"-";
+        this.temperaturaMaxima = (prediccion.getTemperaturaMaxima() != null)?prediccion.getTemperaturaMaxima().setScale(2).toString():"-";
+        this.temperaturaNoche = (prediccion.getTemperaturaNoche() != null)?prediccion.getTemperaturaNoche().setScale(2).toString():"-";
+        this.temperaturaAtardecer = (prediccion.getTemperaturaAtardecer() != null)?prediccion.getTemperaturaAtardecer().setScale(2).toString():"-";
+        this.temperaturaAmanecer = (prediccion.getTemperaturaAmanecer() != null)?prediccion.getTemperaturaAmanecer().setScale(2).toString():"-";
+        this.presion = (prediccion.getPresion() != null)?prediccion.getPresion().setScale(2).toString():"-";
+        this.humedad = (prediccion.getHumedad() != null)?prediccion.getHumedad().setScale(2).toString():"-";
         this.clima = prediccion.getClima();
         this.climaDescripcion = prediccion.getClimaDescripcion();
         this.icono = prediccion.getIcono();
-        this.visibilidad = (prediccion.getVisibilidad() != null)?prediccion.getVisibilidad().toString():"-";
-        this.velocidadViento = (prediccion.getVelocidadViento() != null)?prediccion.getVelocidadViento().toString():"-";
+        this.visibilidad = (prediccion.getVisibilidad() != null)?prediccion.getVisibilidad().setScale(2).toString():"-";
+        this.velocidadViento = (prediccion.getVelocidadViento() != null)?prediccion.getVelocidadViento().setScale(2).toString():"-";
         if(prediccion.getDireccionViento() != null){
             BigDecimal direccion = prediccion.getDireccionViento();
             if(direccion.compareTo(new BigDecimal(337.5)) >= 0 || direccion.compareTo(new BigDecimal(22.5)) <= 0){
@@ -144,10 +144,10 @@ public class PrediccionClimaDto implements Serializable{
         }else{
             this.direccionViento = "sinDatos";
         }
-        this.velocidadRafagaViento = (prediccion.getVelocidadRafagaViento() != null)?prediccion.getVelocidadRafagaViento().toString():"-";
-        this.nubosidad = (prediccion.getNubosidad() != null)?prediccion.getNubosidad().toString():"-";
-        this.cantidadLluvia = (prediccion.getCantidadLluvia() != null)?prediccion.getCantidadLluvia().toString():"-";
-        this.cantidadNieve = (prediccion.getCantidadNieve() != null)?prediccion.getCantidadNieve().toString():"-";
+        this.velocidadRafagaViento = (prediccion.getVelocidadRafagaViento() != null)?prediccion.getVelocidadRafagaViento().setScale(2).toString():"-";
+        this.nubosidad = (prediccion.getNubosidad() != null)?prediccion.getNubosidad().setScale(2).toString():"-";
+        this.cantidadLluvia = (prediccion.getCantidadLluvia() != null)?prediccion.getCantidadLluvia().setScale(2).toString():"-";
+        this.cantidadNieve = (prediccion.getCantidadNieve() != null)?prediccion.getCantidadNieve().setScale(2).toString():"-";
 	    return this;
 	}
 	

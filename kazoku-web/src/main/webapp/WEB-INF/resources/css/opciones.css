@@ -1,0 +1,10 @@
+.opciones{
+	margin-top: 2%;
+}
+.opciones em{
+	margin: 0 2%;
+	cursor: pointer;
+}
+.opciones em:HOVER{
+	color: blue;
+}

@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/general.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reloj.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/predicciones.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/opciones.css">
 		
 		<!-- javaScript -->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery-1.11.2.js"></script>
@@ -44,8 +45,8 @@
 							<div class="fecha"></div>
 						</div>
 					</div>
-					<div class="col-md-5">
-						<em class="fa fa-2x fa-cog"></em>
+					<div class="col-md-5 opciones">
+						<em class="fa fa-2x fa-cog configuracion"></em>
 						<em class="fa fa-2x fa-sun-o"></em>
 						<em class="fa fa-2x fa-moon-o"></em>
 						<em class="fa fa-2x fa-user-o"></em>
@@ -103,15 +104,22 @@
 				</div>
 				<div class="row alto-25">
 					<%-- <h1>Tiempo próximos 7 dias</h1> --%>
-					<c:forEach var="prediccion" items="${predicciones}" varStatus="loop">
-						<c:if test="${loop.index > 0}">
-							<div class="predicciones">
-								<span class="titulo_dia"><spring:message code="nombre.dias.semana.${util.fechaCorta(prediccion.fecha, 'u')}"/></span>
-								<img src="${pageContext.request.contextPath}/resources/img/iconos_clima/min/${prediccion.icono}.png" alt="prediccion">
-								<span>${prediccion.temperaturaMaxima}º \ ${prediccion.temperaturaMinima}º</span>
-							</div>
-						</c:if>
-					</c:forEach>
+					<div class="lista_predicciones">
+						<c:forEach var="prediccion" items="${predicciones}" varStatus="loop">
+							<c:if test="${loop.index > 0}">
+								<div class="predicciones">
+									<span class="titulo_dia"><spring:message code="nombre.dias.semana.${util.fechaCorta(prediccion.fecha, 'u')}"/></span>
+									<span class="imagen">
+										<img src="${pageContext.request.contextPath}/resources/img/iconos_clima/min/${prediccion.icono}.png" alt="prediccion">
+									</span>
+									<span class="resumen">
+										<span class="ancho-50"><em class="fa fa-thermometer-full"></em>${prediccion.temperaturaMaxima}º</span>
+										<span class="ancho-50"><em class="fa fa-thermometer-empty"></em>${prediccion.temperaturaMinima}º</span>
+									</span>
+								</div>
+							</c:if>
+						</c:forEach>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-4 alto-100">
