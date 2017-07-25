@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.francisco.kazoku.servicios.dto.ConfiguracionDto;
+import com.francisco.kazoku.servicios.interfaces.ConfiguracionServiceI;
 import com.francisco.kazoku.servicios.interfaces.PrediccionClimaServiceI;
 
 @Controller
@@ -20,7 +22,11 @@ public class Inicio{
     private String webInicio;
     
     @Autowired
-    PrediccionClimaServiceI prediccion;
+    ConfiguracionServiceI confService;
+    
+    @Autowired
+    PrediccionClimaServiceI prediccionService;
+    
     
     /**
      * Carga de la página inicial de la aplicación
@@ -31,8 +37,9 @@ public class Inicio{
      */
     @RequestMapping
     public ModelAndView inicio(final HttpSession session, final ModelMap model){
-        model.addAttribute("prediccionActual", prediccion.getPrediccionActual());
-        model.addAttribute("predicciones", prediccion.getPredicciones().getPredicciones());
+        ConfiguracionDto config = confService.getConfiguracion();
+        model.addAttribute("prediccionActual", prediccionService.getPrediccionActual());
+        model.addAttribute("predicciones", prediccionService.getPredicciones().getPredicciones());
         return new ModelAndView(webInicio, "model", model);
     }
     

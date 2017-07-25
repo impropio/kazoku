@@ -32,7 +32,7 @@
 	</head>
 	<body>
 	<%@ include file="common/mensajes.jsp" %>
-		<div class="contenedor">
+		<div class="contenedor-principal">
 			<div class="col-md-8 alto-100">
 				<div class="row alto-25">
 					<div id="reloj" class="col-md-7">
@@ -46,13 +46,13 @@
 						</div>
 					</div>
 					<div class="col-md-5 opciones">
-						<em class="fa fa-2x fa-cog configuracion"></em>
-						<em class="fa fa-2x fa-sun-o"></em>
-						<em class="fa fa-2x fa-moon-o"></em>
-						<em class="fa fa-2x fa-user-o"></em>
-						<em class="fa fa-2x fa-address-card-o"></em>
-						<em class="fa fa-2x fa-shopping-cart"></em>
-						<em class="fa fa-2x fa-wifi"></em>
+						<a href="${pageContext.request.contextPath}/configuracion"><em class="fa fa-2x fa-cog configuracion"></em></a>
+						<a href=""><em class="fa fa-2x fa-sun-o"></em></a>
+						<a href=""><em class="fa fa-2x fa-moon-o"></em></a>
+						<a href=""><em class="fa fa-2x fa-user-o"></em></a>
+						<a href=""><em class="fa fa-2x fa-address-card-o"></em></a>
+						<a href=""><em class="fa fa-2x fa-shopping-cart"></em></a>
+						<a href=""><em class="fa fa-2x fa-wifi"></em></a>
 					</div>
 				</div>
 				<div class="row alto-50">

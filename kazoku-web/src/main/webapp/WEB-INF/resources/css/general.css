@@ -11,8 +11,12 @@ body{
 	height: 100vh;
 	background-color:#F0F3F4;
 }
+.contenedor-principal{
+	height: 100vh;
+}
 .contenedor{
 	height: 100vh;
+	padding-top: 70px;
 }
 .row{
 	margin-left: 0px;

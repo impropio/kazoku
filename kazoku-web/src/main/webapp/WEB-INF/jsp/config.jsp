@@ -24,12 +24,12 @@
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<h3 class="titulo" style="color: grey;">Kazoku -> Configuración</h3>
+						<h3 class="titulo" style="color: grey;">Kazoku</h3>
 					</div>
 				</div>
 			</nav>
 		</header>
-		<div class="contenedor" id="contenedor" style="margin-top: 80px;">
+		<div class="contenedor" id="contenedor">
 			<div class="panel panel-default">
 				<div class="panel-heading">Ubicación</div>
 				<div class="panel-body">
@@ -37,15 +37,5 @@
 				</div>
 			</div>
 		</div>
-		<footer>
-			<nav class="navbar navbar-inverse navbar-fixed-bottom">
-				<div class="container-fluid">
-					<div class="navbar-header" style="width: 100%;">
-						<h6 style="diaplay:inline; float: left; color: grey;">Desarrollado por Francisco Moro</h6>
-						<h6 style="diaplay:inline; float: right; color: grey;">Ver. 0.1 / 19-Jul-2017</h6>
-					</div>
-				</div>
-			</nav>
-		</footer>
 	</body>
 </html>
