@@ -12,6 +12,7 @@
 	
 		<!-- styles -->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/bootstrap-3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/font-awesome/css/font-awesome.min.css">
 		<!-- propios -->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/general.css">
 		
@@ -24,16 +25,75 @@
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<h3 class="titulo" style="color: grey;">Kazoku</h3>
+						<span class="t3 titulo" style="color: grey;">Kazoku</span>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}">Inicio</a></li>
+							<li class="breadcrumb-item active">Configuración</li>
+						</ol>
 					</div>
 				</div>
 			</nav>
 		</header>
 		<div class="contenedor" id="contenedor">
-			<div class="panel panel-default">
-				<div class="panel-heading">Ubicación</div>
-				<div class="panel-body">
-					Formulario de configuración
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">Ubicación</div>
+					<div class="panel-body">
+						<div class="row">
+							<span class="titulo3">Localización:</span>
+							<div class="col-md-6">
+								 <select class="form-control">
+								 	<option value="--" selected>Seleccione una opción</option>
+								 	<c:forEach var="pais" items="${paises}">
+								 		<c:choose>
+								 			<c:when test="${configuracion.codigoPais == pais.codigoPais}">
+								 				<option value="${pais.codigoPais}" selected>${pais.pais}</option>
+								 			</c:when>
+								 			<c:otherwise>
+								 				<option value="${pais.codigoPais}">${pais.pais}</option>
+								 			</c:otherwise>
+								 		</c:choose>
+								 	</c:forEach>
+								 </select>
+							</div>
+							<div class="col-md-6">
+								<%--<select class="form-control">
+									<option value="--" selected>Seleccione una opción</option>
+									<c:forEach var="ciudad" items="${ciudades}">
+										<c:choose>
+											<c:when test="${configuracion.idCiudad == ciudad.idCiudad}">
+								 				<option value="${ciudad.idCiudad}" selected>${ciudad.nombreCiudad}</option>
+								 			</c:when>
+								 			<c:otherwise>
+								 				<option value="${ciudad.idCiudad}">${ciudad.nombreCiudad}</option>
+								 			</c:otherwise>
+										</c:choose>
+									</c:forEach>
+								</select>--%>
+								<input list="ciudades" name="ciudad" class="form-control" value="${ciudadSeleccionada.nombreCiudad}">
+								<datalist id="ciudades">
+									<c:forEach var="ciudad" items="${ciudades}">
+								 		<option data-valor="${ciudad.idCiudad}" value="${ciudad.nombreCiudad}"/>
+									</c:forEach>
+								</datalist>
+							</div>
+						</div>
+						<div class="row">
+							<span class="titulo3">Unidades:</span>
+							<c:forEach var="medida" items="${medidas}">
+								<div class="radio radio-custom">
+									<c:choose>
+										<c:when test="${configuracion.idMedida == medida.idMedida}">
+											<label><input type="radio" name="medidas" value="${medida.idMedida}" checked><span> ${medida.medida}</span></label>
+										</c:when>
+										<c:otherwise>
+											<label><input type="radio" name="medidas" value="${medida.idMedida}"><span> ${medida.medida}</span></label>
+										</c:otherwise>
+									</c:choose>
+								</div>
+							</c:forEach>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

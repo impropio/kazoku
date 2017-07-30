@@ -15,16 +15,16 @@ public class PrediccionClimaServiceImpl implements PrediccionClimaServiceI{
     PrediccionClimaDaoI prediccionDao;
     
     @Override
-    public CiudadClimaDto getPrediccionActual() {
+    public CiudadClimaDto getPrediccionActual(String idCiudad, String unidades, String apiId) {
         CiudadClimaDto ciudadDto = new CiudadClimaDto();
-        CiudadClima ciudad = prediccionDao.getPrediccionActual();
+        CiudadClima ciudad = prediccionDao.getPrediccionActual(idCiudad, unidades, apiId);
         return ciudadDto.objectToDto(ciudad);
     }
     
     @Override
-    public CiudadClimaDto getPredicciones() {
+    public CiudadClimaDto getPredicciones(String idCiudad, String unidades, String apiId, Integer numeroDias) {
         CiudadClimaDto ciudadDto = new CiudadClimaDto();
-        CiudadClima ciudad = prediccionDao.getPredicciones();
+        CiudadClima ciudad = prediccionDao.getPredicciones(idCiudad, unidades, apiId, numeroDias);
         return ciudadDto.objectToDto(ciudad);
     }
     

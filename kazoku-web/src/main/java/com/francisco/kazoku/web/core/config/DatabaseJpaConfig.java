@@ -21,8 +21,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * Configuracion de la base de datos cuando se usa JPA o SptingData JPA.
  */
 @Configuration
-//@ComponentScan(basePackages = { "com.francisco.kazoku.basedatos" })
-//@EnableJpaRepositories({ "com.francisco.kazoku.basedatos" })
 @EnableTransactionManagement
 public class DatabaseJpaConfig {
     
@@ -38,11 +36,23 @@ public class DatabaseJpaConfig {
     @Value("${basedatos.datasource.password}")
     private String clave;
     
+    @Value("${basedatos.showSql}")
+    private String mostrarSql;
+    
+    @Value("${basedatos.actualiza.entities}")
+    private String actualizaEntities;
+    
+    @Value("${basedatos.dialecto}")
+    private String dialecto;
+    
+    @Value("${basedatos.ruta.entities}")
+    private String rutaEntities;
+    
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[] { "com.francisco.kazoku.basedatos.entities" });
+        em.setPackagesToScan(new String[] {rutaEntities});
         
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -76,8 +86,9 @@ public class DatabaseJpaConfig {
     
     Properties additionalProperties(){
         Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", "none");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        properties.setProperty("hibernate.hbm2ddl.auto", actualizaEntities);
+        properties.setProperty("hibernate.show_sql", mostrarSql);
+        properties.setProperty("hibernate.dialect", dialecto);
         return properties;
     }
     

@@ -11,14 +11,21 @@ public interface PrediccionClimaServiceI {
     
     /**
      * 
+     * @param idCiudad
+     * @param unidades
+     * @param apiId
      * @return datos de la ciudad con la predicción actual
      */
-    CiudadClimaDto getPrediccionActual();
+    CiudadClimaDto getPrediccionActual(String idCiudad, String unidades, String apiId);
     
     /**
      * 
+     * @param idCiudad
+     * @param unidades
+     * @param apiId
+     * @param numeroDias
      * @return datos de la ciudad con la predicción para los próximos dias
      */
-    CiudadClimaDto getPredicciones();
+    CiudadClimaDto getPredicciones(String idCiudad, String unidades, String apiId, Integer numeroDias);
     
 }

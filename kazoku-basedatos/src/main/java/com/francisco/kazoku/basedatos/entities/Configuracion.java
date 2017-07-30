@@ -17,10 +17,24 @@ public class Configuracion extends com.francisco.kazoku.basedatos.core.impl.Abst
 	@Id
 	private int id;
 
+	@Column(name="clima_api_id")
+	private String climaApiId;
+
+	@Column(name="clima_numero_dias")
+	private Integer climaNumeroDias;
+
+	@Column(name="idioma")
+	private String idioma;
+
 	//bi-directional many-to-one association to Ciudad
 	@ManyToOne
 	@JoinColumn(name="id_ciudad")
 	private Ciudad ciudad;
+
+	//bi-directional many-to-one association to Medidas
+	@ManyToOne
+	@JoinColumn(name="tipo_medidas")
+	private Medidas medidas;
 
 	public Configuracion() {
 	}
@@ -33,12 +47,44 @@ public class Configuracion extends com.francisco.kazoku.basedatos.core.impl.Abst
 		this.id = id;
 	}
 
+	public String getClimaApiId() {
+		return this.climaApiId;
+	}
+
+	public void setClimaApiId(String climaApiId) {
+		this.climaApiId = climaApiId;
+	}
+
+	public Integer getClimaNumeroDias() {
+		return this.climaNumeroDias;
+	}
+
+	public void setClimaNumeroDias(Integer climaNumeroDias) {
+		this.climaNumeroDias = climaNumeroDias;
+	}
+
+	public String getIdioma() {
+		return this.idioma;
+	}
+
+	public void setIdioma(String idioma) {
+		this.idioma = idioma;
+	}
+
 	public Ciudad getCiudad() {
 		return this.ciudad;
 	}
 
 	public void setCiudad(Ciudad ciudad) {
 		this.ciudad = ciudad;
+	}
+
+	public Medidas getMedidas() {
+		return this.medidas;
+	}
+
+	public void setMedidas(Medidas medidas) {
+		this.medidas = medidas;
 	}
 
 }

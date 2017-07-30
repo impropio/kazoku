@@ -18,15 +18,21 @@ public class Ciudad extends com.francisco.kazoku.basedatos.core.impl.AbstractEnt
 	@Id
 	private int id;
 
+	@Column(name="lat")
 	private double lat;
 
+	@Column(name="lon")
 	private double lon;
 
+	@Column(name="nombre")
 	private String nombre;
-
+	
+	@Column(name="pais")
+    private String codPais;
+	
 	//bi-directional many-to-one association to Pais
 	@ManyToOne
-	@JoinColumn(name="pais")
+	@JoinColumn(name="pais", updatable=false, insertable=false)
 	private Pais pais;
 
 	//bi-directional many-to-one association to Configuracion
@@ -67,7 +73,15 @@ public class Ciudad extends com.francisco.kazoku.basedatos.core.impl.AbstractEnt
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public String getCodPais() {
+        return this.codPais;
+    }
 
+    public void setCodPais(String codPais) {
+        this.codPais = codPais;
+    }
+    
 	public Pais getPais() {
 		return this.pais;
 	}
@@ -85,14 +99,14 @@ public class Ciudad extends com.francisco.kazoku.basedatos.core.impl.AbstractEnt
 	}
 
 	public Configuracion addConfig(Configuracion config) {
-	    getListaConfig().add(config);
+		getListaConfig().add(config);
 		config.setCiudad(this);
 
 		return config;
 	}
 
 	public Configuracion removeConfig(Configuracion config) {
-	    getListaConfig().remove(config);
+		getListaConfig().remove(config);
 		config.setCiudad(null);
 
 		return config;

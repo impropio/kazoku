@@ -25,14 +25,14 @@ import com.francisco.kazoku.comunicacion.interfaces.PrediccionClimaDaoI;
 public class PrediccionClimaDaoImpl implements PrediccionClimaDaoI{
     
     @Override
-    public CiudadClima getPrediccionActual() {
+    public CiudadClima getPrediccionActual(String idCiudad, String unidades, String apiId) {
         CiudadClima ciudad = new CiudadClima();
         
         String resultado = "";
         try {
             List<PrediccionClima> prediccion = new ArrayList<PrediccionClima>();
             
-            String MontarUrl = "http://api.openweathermap.org/data/2.5/weather?id=3109718&units=metric&appid=77cd5a8bc3da25900b074a04e40a5534";
+            String MontarUrl = "http://api.openweathermap.org/data/2.5/weather?id="+idCiudad+"&units="+unidades+"&appid="+apiId;
             final URL url = new URL(MontarUrl);
             final HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -106,13 +106,13 @@ public class PrediccionClimaDaoImpl implements PrediccionClimaDaoI{
     }
     
     @Override
-    public CiudadClima getPredicciones() {
+    public CiudadClima getPredicciones(String idCiudad, String unidades, String apiId, Integer numeroDias) {
         CiudadClima ciudad = new CiudadClima();
         String resultado = "";
         try {
             List<PrediccionClima> prediccion = new ArrayList<PrediccionClima>();
             
-            String MontarUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?id=3109718&cnt=8&units=metric&appid=77cd5a8bc3da25900b074a04e40a5534";
+            String MontarUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?id="+idCiudad+"&cnt="+numeroDias+"&units="+unidades+"&appid="+apiId;
             final URL url = new URL(MontarUrl);
             final HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");

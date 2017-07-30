@@ -3,6 +3,7 @@
 	<persistence-unit name="kazoku-basedatos">
 		<class>com.francisco.kazoku.basedatos.entities.Ciudad</class>
 		<class>com.francisco.kazoku.basedatos.entities.Configuracion</class>
+		<class>com.francisco.kazoku.basedatos.entities.Medidas</class>
 		<class>com.francisco.kazoku.basedatos.entities.Pais</class>
 	</persistence-unit>
 </persistence>

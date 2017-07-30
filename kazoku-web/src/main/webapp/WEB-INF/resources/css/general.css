@@ -58,6 +58,87 @@ body{
 	margin: 0 !important;
 	padding: 0 !important;
 }
+.navbar{
+	padding-top: 10px;
+}
+.breadcrumb{
+	display: inline;
+	background-color: inherit;
+}
+.breadcrumb-item a{
+	font-weight: bold;
+	color: white !important;
+}
 .t3{
 	font-size: 1.5em;
+}
+.titulo3{
+	display: block;
+}
+/*---------------------------------
+-        Botones de Radio         -
+---------------------------------*/
+.radio-custom {
+	padding-rig: 20px;
+	display: inline-block;
+}
+.radio-custom span {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	padding-left: 5px;
+}
+.radio-custom span::before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: 17px;
+	height: 17px;
+	left: 0;
+	margin-left: -20px;
+	border: 1px solid #C2C2C2;
+	border-radius: 50%;
+	box-shadow:0px 1px 0px #DDDDDD;
+	background-color: #FFFFFF;
+	-webkit-transition: border 0.15s ease-in-out;
+	-o-transition: border 0.15s ease-in-out;
+	transition: border 0.15s ease-in-out;
+}
+.radio-custom span::after {
+	display: inline-block;
+	position: absolute;
+	content: " ";
+	width: 11px;
+	height: 11px;
+	left: 3px;
+	top: 1px;
+	margin-left: -20px;
+	border-radius: 50%;
+	-webkit-transform: scale(0.5, 0.5);
+	-ms-transform: scale(0.5, 0.5);
+	-o-transform: scale(0.5, 0.5);
+	transform: scale(0.5, 0.5);
+	-webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+	-moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+	-o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+	transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+}
+.radio-custom input[type="radio"] {
+	opacity: 0;
+	z-index: 1;
+	cursor: pointer;
+}
+.radio-custom input[type="radio"]:disabled{
+	cursor: not-allowed;
+}
+.radio-custom input[type="radio"]:disabled + span{
+	opacity: 0.65;
+}
+.radio-custom input[type="radio"]:disabled + span{
+	cursor: not-allowed;
+}
+.radio-custom input[type="radio"]:checked + span::after {
+	font-family: "FontAwesome";
+	content: "\f111";
+	color: red;
 }
