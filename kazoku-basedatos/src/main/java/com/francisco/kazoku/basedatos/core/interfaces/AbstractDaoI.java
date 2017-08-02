@@ -117,4 +117,13 @@ public interface AbstractDaoI <E extends AbstractEntity>{
      * @return the e
      */
     E lanzarCriteriaOneResult(CriteriaQuery<E> cq);
+    
+    /**
+     * Lanzar criteria con limite de resultados
+     * 
+     * @param cq
+     * @param limite
+     * @return the e
+     */
+    List<E> lanzarCriteriaLimiteResultados(CriteriaQuery<E> cq, Integer limite);
 }

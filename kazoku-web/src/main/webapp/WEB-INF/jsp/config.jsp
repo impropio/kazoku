@@ -19,6 +19,8 @@
 		<!-- javaScript -->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery-1.11.2.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+		<!-- propios -->
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/config.js"></script>
 	</head>
 	<body>
 		<header>
@@ -70,11 +72,20 @@
 										</c:choose>
 									</c:forEach>
 								</select>--%>
-								<input list="ciudades" name="ciudad" class="form-control" value="${ciudadSeleccionada.nombreCiudad}">
-								<datalist id="ciudades">
+								<c:choose>
+									<c:when test="${configuracion.codigoPais != '-'}">
+										<input list="ciudades" id="ciudad" name="ciudad" class="form-control" value="${ciudadSeleccionada.nombreCiudad}">
+									</c:when>
+									<c:otherwise>
+										<input list="ciudades" id="ciudad" name="ciudad" class="form-control" disabled>
+									</c:otherwise>
+								</c:choose>
+								<datalist id="lista-ciudades">
+									<%--
 									<c:forEach var="ciudad" items="${ciudades}">
 								 		<option data-valor="${ciudad.idCiudad}" value="${ciudad.nombreCiudad}"/>
 									</c:forEach>
+									--%>
 								</datalist>
 							</div>
 						</div>

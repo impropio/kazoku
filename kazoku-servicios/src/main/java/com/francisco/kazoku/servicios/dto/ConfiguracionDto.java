@@ -30,7 +30,7 @@ public class ConfiguracionDto implements Serializable{
      */
     public ConfiguracionDto(String codigoPais, String idCiudad, Integer idMedida, String unidades, String apiId, Integer numeroDias, String idioma){
         this.idCiudad = idCiudad;
-        this.setIdMedida(idMedida);
+        this.idMedida = idMedida;
         this.unidadesMedida = unidades;
         this.climaApiId = apiId;
         this.climaNumeroDias = numeroDias;

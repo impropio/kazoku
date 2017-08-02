@@ -216,6 +216,23 @@ public abstract class AbstractDao <E extends AbstractEntity> implements Abstract
     }
     
     /**
+     * Lanzar la consulta para recuperar un numero máximo de resultados
+     * 
+     * @param cq
+     */
+    @Override
+    public List<E> lanzarCriteriaLimiteResultados(final CriteriaQuery<E> cq, Integer limite) {
+        try {
+            List<E> result;
+            final TypedQuery<E> q = this.entityManager.createQuery(cq).setMaxResults(limite);
+            result = q.getResultList();
+            return result;
+        } catch (final Exception e) {
+            throw e;
+        }
+    }
+    
+    /**
      * 
      * @param entityManager
      */

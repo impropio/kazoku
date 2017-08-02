@@ -1,13 +1,23 @@
 package com.francisco.kazoku.web.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.francisco.kazoku.servicios.dto.CiudadDto;
 import com.francisco.kazoku.servicios.dto.ConfiguracionDto;
 import com.francisco.kazoku.servicios.interfaces.CiudadServiceI;
 import com.francisco.kazoku.servicios.interfaces.ConfiguracionServiceI;
@@ -17,6 +27,9 @@ import com.francisco.kazoku.servicios.interfaces.PaisServiceI;
 @Controller
 @RequestMapping(value = "/configuracion")
 public class ConfiguracionController{
+    
+    @Value("${ciudades.limite.resultados}")
+    private String limiteResultados;
     
     @Autowired
     ConfiguracionServiceI confService;
@@ -47,6 +60,15 @@ public class ConfiguracionController{
 //        model.addAttribute("ciudades", ciudadService.getCiudadPais(conf.getCodigoPais()));
         model.addAttribute("ciudades", ciudadService.getCiudadesPaisTextoLimite(conf.getCodigoPais(), "san", 10));
         return new ModelAndView("config", "model", model);
+    }
+    
+    @RequestMapping(value = "/ciudadespais", method = RequestMethod.POST)
+    @ResponseBody
+    public String getCiudadesPais(@RequestParam("pais") String pais, @RequestParam("texto") String texto){
+        List<CiudadDto> listaCiudades = new ArrayList<CiudadDto>();
+        Gson gson = new Gson();
+        listaCiudades = ciudadService.getCiudadesPaisTextoLimite(pais, texto, Integer.parseInt(limiteResultados));
+        return gson.toJson(listaCiudades);
     }
     
     /**

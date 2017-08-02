@@ -63,14 +63,20 @@ public class CiudadDaoImpl extends AbstractDao<Ciudad> implements CiudadDaoI{
         final Root<Ciudad> root = cq.from(Ciudad.class);
         
         final List<Predicate> predicados = new ArrayList<>();
+        final List<Predicate> predicadosOr = new ArrayList<>();
         
         predicados.add(cb.equal(root.<String> get("codPais"), codPais));
-        predicados.add(cb.like(root.<String> get("nombre"), "%San%"));
+        predicadosOr.add(cb.like(root.<String> get("nombre"), texto+"%"));
+        predicadosOr.add(cb.like(root.<String> get("nombre"), "% "+texto+"%"));
+        
+        predicados.add(cb.or(predicadosOr.toArray(new Predicate[] {})));
+        
         cq.where(predicados.toArray(new Predicate[] {}));
         cq.groupBy(root.get("nombre"));
         cq.orderBy(cb.asc(root.<String> get("nombre")));
         
-        ciudades = lanzarCriteria(cq);
+        
+        ciudades = lanzarCriteriaLimiteResultados(cq, limite);
         
         return ciudades;
     }
