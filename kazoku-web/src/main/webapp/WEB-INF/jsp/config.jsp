@@ -44,7 +44,7 @@
 						<div class="row">
 							<span class="titulo3">Localización:</span>
 							<div class="col-md-6">
-								 <select class="form-control">
+								 <select class="form-control" id="pais">
 								 	<option value="--" selected>Seleccione una opción</option>
 								 	<c:forEach var="pais" items="${paises}">
 								 		<c:choose>
@@ -74,10 +74,10 @@
 								</select>--%>
 								<c:choose>
 									<c:when test="${configuracion.codigoPais != '-'}">
-										<input list="ciudades" id="ciudad" name="ciudad" class="form-control" value="${ciudadSeleccionada.nombreCiudad}">
+										<input list="lista-ciudades" id="ciudad" name="ciudad" class="form-control" value="${ciudadSeleccionada.nombreCiudad}">
 									</c:when>
 									<c:otherwise>
-										<input list="ciudades" id="ciudad" name="ciudad" class="form-control" disabled>
+										<input list="lista-ciudades" id="ciudad" name="ciudad" class="form-control" disabled>
 									</c:otherwise>
 								</c:choose>
 								<datalist id="lista-ciudades">

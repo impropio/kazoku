@@ -64,7 +64,7 @@ public class ConfiguracionController{
     
     @RequestMapping(value = "/ciudadespais", method = RequestMethod.POST)
     @ResponseBody
-    public String getCiudadesPais(@RequestParam("pais") String pais, @RequestParam("texto") String texto){
+    public String getCiudadesPais(@RequestParam("pais") String pais, @RequestParam("ciudad") String texto){
         List<CiudadDto> listaCiudades = new ArrayList<CiudadDto>();
         Gson gson = new Gson();
         listaCiudades = ciudadService.getCiudadesPaisTextoLimite(pais, texto, Integer.parseInt(limiteResultados));

@@ -5,10 +5,20 @@ $(document).ready(function(){
 });
 
 function cargarCiudades(){
-	if($('#ciudad').val().length > 2){
-		$.ajax({url:"localhost:8080/kazoku/configuracion/ciudadespais"}).done(function(data){
-			for(var i=0; i<data.length; i++){
-				$('lista-ciudades').append('<option data-valor="1" value="'+i+'"/>');
+	var txtCiudad = $('#ciudad').val();
+	if(txtCiudad.length > 2){
+		$.ajax({
+			url: "http://localhost:8080/kazoku-web/configuracion/ciudadespais",
+			type: "POST",
+			data: {
+				pais: $('#pais').val(),
+				ciudad: txtCiudad
+			}
+		}).done(function(data){
+			var ciudades = JSON.parse(data);
+			$('#lista-ciudades').empty();
+			for(var i=0; i<ciudades.length; i++){
+				$('#lista-ciudades').append('<option data-valor="'+ciudades[i].idCiudad+'" value="'+ciudades[i].nombreCiudad+'"/>');
 			}
 		});
 	}
