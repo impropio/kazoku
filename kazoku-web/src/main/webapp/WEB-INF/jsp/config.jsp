@@ -19,10 +19,14 @@
 		<!-- javaScript -->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery-1.11.2.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/bootstrap-3.3.7/js/notify.min.js"></script>
 		<!-- propios -->
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/custom-notify.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/config.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/general.js"></script>
 	</head>
 	<body>
+		<%@ include file="common/mensajes.jsp" %>
 		<header>
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 				<div class="container-fluid">
@@ -45,7 +49,7 @@
 							<span class="titulo3">Localización:</span>
 							<div class="col-md-6">
 								 <select class="form-control" id="pais">
-								 	<option value="--" selected>Seleccione una opción</option>
+								 	<option value="-" selected>Seleccione una opción</option>
 								 	<c:forEach var="pais" items="${paises}">
 								 		<c:choose>
 								 			<c:when test="${configuracion.codigoPais == pais.codigoPais}">
@@ -59,37 +63,19 @@
 								 </select>
 							</div>
 							<div class="col-md-6">
-								<%--<select class="form-control">
-									<option value="--" selected>Seleccione una opción</option>
-									<c:forEach var="ciudad" items="${ciudades}">
-										<c:choose>
-											<c:when test="${configuracion.idCiudad == ciudad.idCiudad}">
-								 				<option value="${ciudad.idCiudad}" selected>${ciudad.nombreCiudad}</option>
-								 			</c:when>
-								 			<c:otherwise>
-								 				<option value="${ciudad.idCiudad}">${ciudad.nombreCiudad}</option>
-								 			</c:otherwise>
-										</c:choose>
-									</c:forEach>
-								</select>--%>
 								<c:choose>
 									<c:when test="${configuracion.codigoPais != '-'}">
-										<input list="lista-ciudades" id="ciudad" name="ciudad" class="form-control" value="${ciudadSeleccionada.nombreCiudad}">
+										<input list="lista-ciudades" id="ciudad" name="ciudad" class="form-control" data-valor="" value="${ciudadSeleccionada.nombreCiudad}">
 									</c:when>
 									<c:otherwise>
-										<input list="lista-ciudades" id="ciudad" name="ciudad" class="form-control" disabled>
+										<input list="lista-ciudades" id="ciudad" name="ciudad" class="form-control" data-valor="" disabled>
 									</c:otherwise>
 								</c:choose>
-								<datalist id="lista-ciudades">
-									<%--
-									<c:forEach var="ciudad" items="${ciudades}">
-								 		<option data-valor="${ciudad.idCiudad}" value="${ciudad.nombreCiudad}"/>
-									</c:forEach>
-									--%>
+								<datalist id="lista-ciudades" name="lista-ciudades">
 								</datalist>
 							</div>
 						</div>
-						<div class="row">
+						<div class="row linea">
 							<span class="titulo3">Unidades:</span>
 							<c:forEach var="medida" items="${medidas}">
 								<div class="radio radio-custom">
@@ -103,6 +89,22 @@
 									</c:choose>
 								</div>
 							</c:forEach>
+						</div>
+						<div class="row linea">
+							<div class="col-md-6">
+								<span class="titulo3">Días de predicción</span>
+								<div class="range">
+									<input type="range" id="dias-prediccion" class="selector" min="4" max="12" value="${configuracion.climaNumeroDias}">
+									<span class="valor">${configuracion.climaNumeroDias}</span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<span class="titulo3">Código API <a href="https://openweathermap.org">OpenWeatherMap</a></span>
+								<input id="api-clima" name="api-clima" class="form-control" value="${configuracion.climaApiId}">
+							</div>
+						</div>
+						<div class="row linea">
+							<button id="actualizar-ubicacion" type="button" class="btn btn-success pull-right">Actualizar</button>
 						</div>
 					</div>
 				</div>

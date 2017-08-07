@@ -71,6 +71,25 @@ public class ConfiguracionController{
         return gson.toJson(listaCiudades);
     }
     
+    @RequestMapping(value = "/actualizarubicacion", method = RequestMethod.POST)
+    @ResponseBody
+    public String setUbicacion(final HttpSession sesion, @RequestParam("ciudad") String ciudad, @RequestParam("unidades") String unidades,
+            @RequestParam("numerodias") Integer numeroDias, @RequestParam("codigoapi") String codigoApi){
+        
+        ConfiguracionDto config = new ConfiguracionDto();
+        config.setIdCiudad(ciudad);
+        config.setUnidadesMedida(unidades);
+        config.setClimaNumeroDias(numeroDias);
+        config.setClimaApiId(codigoApi);
+        ConfiguracionDto resultado = confService.actualizaConfiguracion(config);
+        
+        sesion.setAttribute("config", resultado);
+        
+        Gson gson = new Gson();
+        
+        return gson.toJson("true");
+    }
+    
     /**
      * Comprueba si estan los datos de la configuración en la sesión y si no lo están les recupera de la
      * base de datos y les guarda en la sesión

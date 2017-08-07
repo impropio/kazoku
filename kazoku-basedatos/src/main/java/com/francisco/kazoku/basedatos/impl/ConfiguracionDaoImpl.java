@@ -32,6 +32,11 @@ public class ConfiguracionDaoImpl extends AbstractDao<Configuracion> implements 
         
         return config;
     }
+    
+    @Override
+    public Configuracion actualizaConfiguracion(Configuracion config){
+        return update(config);
+    }
 
     @Override
     public Class<Configuracion> getClase(){

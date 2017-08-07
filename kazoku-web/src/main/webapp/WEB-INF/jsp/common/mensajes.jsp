@@ -5,6 +5,7 @@
 var diccionario = {
 		diaSemanaNombres:'<spring:message code="nombre.dias.semana.corto"/>',
 		mesNombres:'<spring:message code="nombre.meses"  text=""/>',
-		separadorFecha:'<spring:message code="separador.fecha"  text=""/>'
+		separadorFecha:'<spring:message code="separador.fecha"  text=""/>',
+		pageContext:'${pageContext.request.contextPath}'
 	};
 </script>

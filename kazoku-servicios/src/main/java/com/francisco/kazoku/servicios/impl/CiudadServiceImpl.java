@@ -17,18 +17,18 @@ public class CiudadServiceImpl implements CiudadServiceI{
     @Autowired
     private CiudadDaoI ciudadDao;
     
-    @Override
-    public List<CiudadDto> getCiudadPais(String codPais){
-        List<CiudadDto> ciudadesDto = new ArrayList<CiudadDto>();
-        List<Ciudad> ciudades = ciudadDao.getCiudadesPais(codPais);
-        
-        for(Ciudad ciudad : ciudades){
-            CiudadDto ciudadDto = new CiudadDto();
-            ciudadesDto.add(ciudadDto.entityToDto(ciudad));
-        }
-        
-        return ciudadesDto;
-    }
+//    @Override
+//    public List<CiudadDto> getCiudadPais(String codPais){
+//        List<CiudadDto> ciudadesDto = new ArrayList<CiudadDto>();
+//        List<Ciudad> ciudades = ciudadDao.getCiudadesPais(codPais);
+//        
+//        for(Ciudad ciudad : ciudades){
+//            CiudadDto ciudadDto = new CiudadDto();
+//            ciudadesDto.add(ciudadDto.entityToDto(ciudad));
+//        }
+//        
+//        return ciudadesDto;
+//    }
 
     @Override
     public CiudadDto getCiudadById(Integer idCiudad){

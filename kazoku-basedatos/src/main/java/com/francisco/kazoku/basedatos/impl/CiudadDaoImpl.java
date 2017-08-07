@@ -34,25 +34,25 @@ public class CiudadDaoImpl extends AbstractDao<Ciudad> implements CiudadDaoI{
         return ciudad;
     }
     
-    @Override
-    public List<Ciudad> getCiudadesPais(String codPais){
-        List<Ciudad> ciudades = new ArrayList<Ciudad>();
-        
-        final CriteriaBuilder cb = getCriteriaBuilder();
-        final CriteriaQuery<Ciudad> cq = cb.createQuery(getClase());
-        final Root<Ciudad> root = cq.from(Ciudad.class);
-        
-        final List<Predicate> predicados = new ArrayList<>();
-        
-        predicados.add(cb.equal(root.<String> get("codPais"), codPais));
-        cq.where(predicados.toArray(new Predicate[] {}));
-        cq.groupBy(root.get("nombre"));
-        cq.orderBy(cb.asc(root.<String> get("nombre")));
-        
-        ciudades = lanzarCriteria(cq);
-        
-        return ciudades;
-    }
+//    @Override
+//    public List<Ciudad> getCiudadesPais(String codPais){
+//        List<Ciudad> ciudades = new ArrayList<Ciudad>();
+//        
+//        final CriteriaBuilder cb = getCriteriaBuilder();
+//        final CriteriaQuery<Ciudad> cq = cb.createQuery(getClase());
+//        final Root<Ciudad> root = cq.from(Ciudad.class);
+//        
+//        final List<Predicate> predicados = new ArrayList<>();
+//        
+//        predicados.add(cb.equal(root.<String> get("codPais"), codPais));
+//        cq.where(predicados.toArray(new Predicate[] {}));
+//        cq.groupBy(root.get("nombre"));
+//        cq.orderBy(cb.asc(root.<String> get("nombre")));
+//        
+//        ciudades = lanzarCriteria(cq);
+//        
+//        return ciudades;
+//    }
     
     @Override
     public List<Ciudad> getCiudadesPaisTextoLimite(String codPais, String texto, Integer limite){

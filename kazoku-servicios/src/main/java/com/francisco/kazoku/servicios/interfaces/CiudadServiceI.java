@@ -6,7 +6,7 @@ import com.francisco.kazoku.servicios.dto.CiudadDto;
 
 public interface CiudadServiceI{
     
-    List<CiudadDto> getCiudadPais(String codPais);
+//    List<CiudadDto> getCiudadPais(String codPais);
     
     List<CiudadDto> getCiudadesPaisTextoLimite(String codPais, String texto, Integer limite);
     

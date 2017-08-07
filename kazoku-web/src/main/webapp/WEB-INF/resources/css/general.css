@@ -75,6 +75,12 @@ body{
 .titulo3{
 	display: block;
 }
+.linea{
+	margin-top: 10px;
+}
+.linea-doble{
+	margin-top: 20px;
+}
 /*---------------------------------
 -        Botones de Radio         -
 ---------------------------------*/
@@ -97,7 +103,6 @@ body{
 	left: 0;
 	margin-left: -20px;
 	border: 1px solid #C2C2C2;
-	border-radius: 50%;
 	box-shadow:0px 1px 0px #DDDDDD;
 	background-color: #FFFFFF;
 	-webkit-transition: border 0.15s ease-in-out;
@@ -113,7 +118,6 @@ body{
 	left: 3px;
 	top: 1px;
 	margin-left: -20px;
-	border-radius: 50%;
 	-webkit-transform: scale(0.5, 0.5);
 	-ms-transform: scale(0.5, 0.5);
 	-o-transform: scale(0.5, 0.5);
@@ -139,6 +143,49 @@ body{
 }
 .radio-custom input[type="radio"]:checked + span::after {
 	font-family: "FontAwesome";
-	content: "\f111";
+	content: "\f00c";
+	font-size: 45px;
+	margin-left: -25px;
+	margin-top: -13px;
 	color: red;
 }
+
+/*---------------------------------
+-             Range               -
+---------------------------------*/
+.range{
+	margin-top: 20px
+}
+
+.range input[type="range"]{
+	-webkit-appearance: none;
+	background: #DDDDDD;
+	border: 1px solid #FFFFFF;
+}
+.range input[type="range"]::-webkit-slider-runnable-track{
+	height: 5px;
+	-webkit-appearance: none;
+	border: none;
+	border-radius: 3px;
+}
+.range input[type="range"]::-webkit-slider-thumb{
+	color:black;
+	-webkit-appearance: none;
+	border: none;
+	height: 28px;
+	width: calc(100% / 5);
+	background: #E59D27;
+	margin-top: -12px;
+}
+.range input[type="range"]:focus{
+	outline: none;
+}
+.range .valor{
+	position: absolute;
+	margin-top: -15px;
+	padding-left: 4px;
+	font-weight: bold;
+	color: #FFFFFF;
+	pointer-events: none;
+}
+

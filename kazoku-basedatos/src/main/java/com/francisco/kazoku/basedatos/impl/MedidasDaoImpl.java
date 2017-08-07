@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
@@ -29,6 +30,22 @@ public class MedidasDaoImpl extends AbstractDao<Medidas> implements MedidasDaoI{
         medidas = lanzarCriteria(cq);
         
         return medidas;
+    }
+    
+    @Override
+    public Medidas getMedidasById(Integer id){
+        final CriteriaBuilder cb = getCriteriaBuilder();
+        final CriteriaQuery<Medidas> cq = cb.createQuery(getClase());
+        final Root<Medidas> root = cq.from(Medidas.class);
+        
+        final List<Predicate> predicados = new ArrayList<>();
+        
+        predicados.add(cb.equal(root.<Integer> get("id"), id));
+        
+        cq.where(predicados.toArray(new Predicate[]{}));
+        Medidas medida = lanzarCriteriaOneResult(cq);
+        
+        return medida;
     }
 
     @Override

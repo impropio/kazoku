@@ -6,4 +6,6 @@ import com.francisco.kazoku.basedatos.entities.Configuracion;
 public interface ConfiguracionDaoI extends AbstractDaoI<Configuracion>{
     
     Configuracion getConfiguracion();
+    
+    Configuracion actualizaConfiguracion(Configuracion conf);
 }

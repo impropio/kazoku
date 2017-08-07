@@ -9,4 +9,6 @@ public interface MedidasDaoI extends AbstractDaoI<Medidas>{
     
     List<Medidas> getMedidasIdioma(String idioma);
     
+    Medidas getMedidasById(Integer id);
+    
 }

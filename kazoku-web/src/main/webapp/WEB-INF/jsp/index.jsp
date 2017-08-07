@@ -28,6 +28,7 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/moment/moment.min.js"></script>
 		<!-- propios -->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/reloj.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/index.js"></script>
 		
 	</head>
 	<body>

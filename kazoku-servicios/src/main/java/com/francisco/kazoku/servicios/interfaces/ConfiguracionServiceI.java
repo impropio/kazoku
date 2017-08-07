@@ -14,4 +14,6 @@ public interface ConfiguracionServiceI{
      * @return
      */
     ConfiguracionDto getConfiguracion();
+    
+    ConfiguracionDto actualizaConfiguracion(ConfiguracionDto config);
 }
