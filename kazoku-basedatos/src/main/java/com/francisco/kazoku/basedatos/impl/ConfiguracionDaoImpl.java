@@ -19,6 +19,9 @@ public class ConfiguracionDaoImpl extends AbstractDao<Configuracion> implements 
 
     @Override
     public Configuracion getConfiguracion(){
+        
+        Configuracion config = null;
+                
         final CriteriaBuilder cb = getCriteriaBuilder();
         final CriteriaQuery<Configuracion> cq = cb.createQuery(getClase());
         final Root<Configuracion> root = cq.from(Configuracion.class);
@@ -28,14 +31,26 @@ public class ConfiguracionDaoImpl extends AbstractDao<Configuracion> implements 
         predicados.add(cb.equal(root.<Integer> get("id"), 1));
         
         cq.where(predicados.toArray(new Predicate[]{}));
-        Configuracion config = lanzarCriteriaOneResult(cq);
         
+        try{
+            config = lanzarCriteriaOneResult(cq);
+        }catch(Exception e){
+            if("No entity found for query".equals(e.getMessage())){
+                return crearConfiguracionBasica();
+            }
+        }
         return config;
     }
     
     @Override
     public Configuracion actualizaConfiguracion(Configuracion config){
         return update(config);
+    }
+    
+    public Configuracion crearConfiguracionBasica(){
+        Configuracion conf = new Configuracion();
+        conf.setId(1);
+        return insert(conf);
     }
 
     @Override

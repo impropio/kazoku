@@ -3,6 +3,7 @@ package com.francisco.kazoku.web.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
@@ -73,8 +74,9 @@ public class ConfiguracionController{
     
     @RequestMapping(value = "/actualizarubicacion", method = RequestMethod.POST)
     @ResponseBody
-    public String setUbicacion(final HttpSession sesion, @RequestParam("ciudad") String ciudad, @RequestParam("unidades") String unidades,
-            @RequestParam("numerodias") Integer numeroDias, @RequestParam("codigoapi") String codigoApi){
+    public void setUbicacion(final HttpSession sesion, HttpServletResponse response, @RequestParam("ciudad") String ciudad, 
+            @RequestParam("unidades") String unidades, @RequestParam("numerodias") Integer numeroDias,
+            @RequestParam("codigoapi") String codigoApi){
         
         ConfiguracionDto config = new ConfiguracionDto();
         config.setIdCiudad(ciudad);
@@ -84,10 +86,6 @@ public class ConfiguracionController{
         ConfiguracionDto resultado = confService.actualizaConfiguracion(config);
         
         sesion.setAttribute("config", resultado);
-        
-        Gson gson = new Gson();
-        
-        return gson.toJson("true");
     }
     
     /**
