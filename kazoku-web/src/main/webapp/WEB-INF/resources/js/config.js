@@ -47,8 +47,8 @@ function actualizarUbicacion(){
 			codigoapi: $('#api-clima').val()
 		}
 	}).success(function(){
-		$.notify('Ubicacion actualizada');
+		$.notify(diccionario.ubicacionActualizada);
 	}).error(function(){
-		$.notify('Ubicacion no actualizada', 'error');
+		$.notify(diccionario.ubicacionNoActualizada, 'error');
 	});
 }

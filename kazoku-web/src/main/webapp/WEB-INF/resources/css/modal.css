@@ -1,0 +1,7 @@
+.ampliar-alergias{
+	cursor: pointer;
+}
+.ampliar-alergias:HOVER{
+	background-color: #31B0D5;
+	color: white;
+}

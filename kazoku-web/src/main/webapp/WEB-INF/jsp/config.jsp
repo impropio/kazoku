@@ -22,8 +22,8 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/bootstrap-3.3.7/js/notify.min.js"></script>
 		<!-- propios -->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/custom-notify.js"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/config.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/general.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/config.js"></script>
 	</head>
 	<body>
 		<%@ include file="common/mensajes.jsp" %>
@@ -31,10 +31,10 @@
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<span class="t3 titulo" style="color: grey;">Kazoku</span>
+						<span class="t3 titulo" style="color: grey;"><spring:message code="title"/></span>
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}">Inicio</a></li>
-							<li class="breadcrumb-item active">Configuración</li>
+							<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}"><spring:message code="nombre.pagina.inicio"/></a></li>
+							<li class="breadcrumb-item active"><spring:message code="nombre.pagina.configuracion"/></li>
 						</ol>
 					</div>
 				</div>
@@ -43,13 +43,13 @@
 		<div class="contenedor" id="contenedor">
 			<div class="col-md-4">
 				<div class="panel panel-default">
-					<div class="panel-heading">Ubicación</div>
+					<div class="panel-heading"><spring:message code="configuracion.ubicacion"/></div>
 					<div class="panel-body">
 						<div class="row">
-							<span class="titulo3">Localización:</span>
+							<span class="titulo3"><spring:message code="configuracion.localizacion"/>:</span>
 							<div class="col-md-6">
 								 <select class="form-control" id="pais">
-								 	<option value="-" selected>Seleccione una opción</option>
+								 	<option value="-" selected><spring:message code="formulario.seleccione.opcion"/></option>
 								 	<c:forEach var="pais" items="${paises}">
 								 		<c:choose>
 								 			<c:when test="${configuracion.codigoPais == pais.codigoPais}">
@@ -71,12 +71,12 @@
 										<input list="lista-ciudades" id="ciudad" name="ciudad" class="form-control" data-valor="" disabled>
 									</c:otherwise>
 								</c:choose>
-								<datalist id="lista-ciudades" name="lista-ciudades">
+								<datalist id="lista-ciudades">
 								</datalist>
 							</div>
 						</div>
 						<div class="row linea">
-							<span class="titulo3">Unidades:</span>
+							<span class="titulo3"><spring:message code="configuracion.unidades"/>:</span>
 							<c:forEach var="medida" items="${medidas}">
 								<div class="radio radio-custom">
 									<c:choose>
@@ -92,19 +92,19 @@
 						</div>
 						<div class="row linea">
 							<div class="col-md-6">
-								<span class="titulo3">Días de predicción</span>
+								<span class="titulo3"><spring:message code="configuracion.dias.prediccion"/></span>
 								<div class="range">
 									<input type="range" id="dias-prediccion" class="selector" min="4" max="12" value="${configuracion.climaNumeroDias}">
 									<span class="valor">${configuracion.climaNumeroDias}</span>
 								</div>
 							</div>
 							<div class="col-md-6">
-								<span class="titulo3">Código API <a href="https://openweathermap.org">OpenWeatherMap</a></span>
+								<span class="titulo3"><spring:message code="configuracion.codigo.api"/> <a href="https://openweathermap.org">OpenWeatherMap</a></span>
 								<input id="api-clima" name="api-clima" class="form-control" value="${configuracion.climaApiId}">
 							</div>
 						</div>
 						<div class="row linea">
-							<button id="actualizar-ubicacion" type="button" class="btn btn-success pull-right">Actualizar</button>
+							<button id="actualizar-ubicacion" type="button" class="btn btn-success pull-right"><spring:message code="formulario.boton.actualizar"/></button>
 						</div>
 					</div>
 				</div>

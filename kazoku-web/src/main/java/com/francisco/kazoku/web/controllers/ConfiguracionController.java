@@ -58,8 +58,6 @@ public class ConfiguracionController{
         model.addAttribute("medidas", medidasService.getMedidas(conf.getIdioma()));
         model.addAttribute("paises", paisService.getPaises(conf.getIdioma()));
         model.addAttribute("ciudadSeleccionada", ciudadService.getCiudadById(Integer.parseInt(conf.getIdCiudad())));
-//        model.addAttribute("ciudades", ciudadService.getCiudadPais(conf.getCodigoPais()));
-        model.addAttribute("ciudades", ciudadService.getCiudadesPaisTextoLimite(conf.getCodigoPais(), "san", 10));
         return new ModelAndView("config", "model", model);
     }
     

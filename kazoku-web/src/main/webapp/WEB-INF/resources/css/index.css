@@ -1,3 +1,32 @@
+/**********************
+*       Titulos       *
+**********************/
+.nuevo-evento:HOVER{
+	color: blue;
+	cursor: pointer;
+}
+/**********************
+*       Opciones      *
+**********************/
+.opciones{
+	margin-top: 2%;
+}
+.opciones .opcion{
+	margin: 0 4% 0 0;
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+.opciones .opcion:HOVER{
+	color: blue;
+}
+.opciones .activa{
+	color: blue;
+}
+
+/**********************
+*     Predicciones    *
+**********************/
 .prediccion{
 	height: 100%;
 }

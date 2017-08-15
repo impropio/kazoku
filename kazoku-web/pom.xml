@@ -82,13 +82,6 @@
 			<version>2.1.5</version>
 		</dependency>
 		
-		<!-- tiles -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-extras</artifactId>
-			<version>3.0.5</version>
-		</dependency>
-		
 		<dependency>
 			<groupId>com.francisco</groupId>
 			<artifactId>kazoku-servicios</artifactId>
