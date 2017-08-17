@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.francisco.kazoku.servicios.dto.ConfiguracionDto;
 import com.francisco.kazoku.servicios.interfaces.ConfiguracionServiceI;
+import com.francisco.kazoku.servicios.interfaces.GrupoSanguineoServiceI;
 
 @Controller
 @RequestMapping(value = "/usuario")
@@ -19,6 +20,9 @@ public class UsuarioController{
     
     @Autowired
     ConfiguracionServiceI confService;
+    
+    @Autowired
+    GrupoSanguineoServiceI grupoSanguineoService;
     
     /**
      * Carga de la pantalla de configuración
@@ -29,7 +33,7 @@ public class UsuarioController{
      */
     @RequestMapping
     public ModelAndView usuario(final HttpSession sesion, final ModelMap model){
-        ConfiguracionDto conf = getConfiguracion(sesion);
+        model.addAttribute("gruposSanguineos", grupoSanguineoService.getGruposSanguineos());
         return new ModelAndView("usuario", "model", model);
     }
     

@@ -5,5 +5,18 @@
 		<class>com.francisco.kazoku.basedatos.entities.Configuracion</class>
 		<class>com.francisco.kazoku.basedatos.entities.Medidas</class>
 		<class>com.francisco.kazoku.basedatos.entities.Pais</class>
+		<class>com.francisco.kazoku.basedatos.entities.Alergia</class>
+		<class>com.francisco.kazoku.basedatos.entities.Email</class>
+		<class>com.francisco.kazoku.basedatos.entities.EmailPK</class>
+		<class>com.francisco.kazoku.basedatos.entities.Garantia</class>
+		<class>com.francisco.kazoku.basedatos.entities.GravedadAlergia</class>
+		<class>com.francisco.kazoku.basedatos.entities.GrupoSanguineo</class>
+		<class>com.francisco.kazoku.basedatos.entities.Peso</class>
+		<class>com.francisco.kazoku.basedatos.entities.PesoUsuario</class>
+		<class>com.francisco.kazoku.basedatos.entities.Tarea</class>
+		<class>com.francisco.kazoku.basedatos.entities.Telefono</class>
+		<class>com.francisco.kazoku.basedatos.entities.TelefonoPK</class>
+		<class>com.francisco.kazoku.basedatos.entities.TipoAlergia</class>
+		<class>com.francisco.kazoku.basedatos.entities.Usuario</class>
 	</persistence-unit>
 </persistence>

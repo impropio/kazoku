@@ -72,10 +72,10 @@
 						</div>
 						<div class="col-sm-4">
 							<select id="gruposangineo" name="gruposangineo" class="form-control">
-								<option>AB+</option>
-								<option>AB</option>
-								<option>A+</option>
-								<option>A</option>
+								<option value="-" selected><spring:message code="formulario.seleccione.opcion"/></option>
+								<c:forEach var="grupoSanguineo" items="${gruposSanguineos}">
+									<option value="${grupoSanguineo}">${grupoSanguineo.grupoSanguineo}</option>
+								</c:forEach>
 							</select>
 						</div>
 						<div class="col-sm-2">

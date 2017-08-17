@@ -9,8 +9,6 @@ public interface CiudadDaoI extends AbstractDaoI<Ciudad>{
     
     Ciudad getCiudadById(Integer idCiudad);
     
-//    List<Ciudad> getCiudadesPais(String codPais);
-    
     List<Ciudad> getCiudadesPaisTextoLimite(String codPais, String texto, Integer limite);
     
 }
