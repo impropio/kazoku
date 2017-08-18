@@ -39,65 +39,129 @@ public class Ciudad extends com.francisco.kazoku.basedatos.core.impl.AbstractEnt
 	@OneToMany(mappedBy="ciudad")
 	private List<Configuracion> listaConfig;
 
+	/**
+	 * Constructor sin parametros
+	 */
 	public Ciudad() {
 	}
 
+	/**
+	 * Parametro id
+	 * @return id
+	 */
 	public int getId() {
 		return this.id;
 	}
 
+	/**
+	 * Parametro id
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * Parametro lat -> latitud
+	 * @return lat
+	 */
 	public double getLat() {
 		return this.lat;
 	}
 
+	/**
+	 * Parametro lat -> latitud
+	 * @param lat
+	 */
 	public void setLat(double lat) {
 		this.lat = lat;
 	}
 
+	/**
+	 * Parametro lon -> longitud
+	 * @return lon
+	 */
 	public double getLon() {
 		return this.lon;
 	}
 
+	/**
+	 * Parametro lon -> longitud
+	 * @param lon
+	 */
 	public void setLon(double lon) {
 		this.lon = lon;
 	}
 
+	/**
+	 * Parametro nombre
+	 * @return nombre
+	 */
 	public String getNombre() {
 		return this.nombre;
 	}
 
+	/**
+	 * Parametro
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
+	/**
+	 * Parametro conPais
+	 * @return codPais
+	 */
 	public String getCodPais() {
         return this.codPais;
     }
 
+	/**
+	 * Parametro codPais
+	 * @param codPais
+	 */
     public void setCodPais(String codPais) {
         this.codPais = codPais;
     }
     
+    /**
+     * Parametro pais
+     * @return pais
+     */
 	public Pais getPais() {
 		return this.pais;
 	}
 
+	/**
+	 * Parametro
+	 * @param pais
+	 */
 	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
 
+	/**
+	 * Parametro listaConfig
+	 * @return listaConfig
+	 */
 	public List<Configuracion> getListaConfig() {
 		return this.listaConfig;
 	}
 
+	/**
+	 * Parametro listaConfig
+	 * @param listaConfig
+	 */
 	public void setListaConfig(List<Configuracion> listaConfig) {
 		this.listaConfig = listaConfig;
 	}
 
+	/**
+	 * Añade una configuracion a la lista
+	 * @param config
+	 * @return config
+	 */
 	public Configuracion addConfig(Configuracion config) {
 		getListaConfig().add(config);
 		config.setCiudad(this);
@@ -105,6 +169,11 @@ public class Ciudad extends com.francisco.kazoku.basedatos.core.impl.AbstractEnt
 		return config;
 	}
 
+	/**
+	 * Elimina una configuracion de la lista
+	 * @param config
+	 * @return config
+	 */
 	public Configuracion removeConfig(Configuracion config) {
 		getListaConfig().remove(config);
 		config.setCiudad(null);

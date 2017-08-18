@@ -14,9 +14,24 @@ import com.francisco.kazoku.basedatos.core.impl.AbstractDao;
 import com.francisco.kazoku.basedatos.entities.Ciudad;
 import com.francisco.kazoku.basedatos.interfaces.CiudadDaoI;
 
+/**
+ * 
+ * @author Francisco Moro
+ * @since 10/08/2017
+ * @version 0.1
+ *
+ */
 @Repository
 public class CiudadDaoImpl extends AbstractDao<Ciudad> implements CiudadDaoI{
 
+    /**
+     * Recupera una ciudad de la base de datos por su id,
+     * ordenada por nombre y con todos los parametros
+     * 
+     * @param idCiudad
+     * 
+     * @return ciudad -> Ciudad que cumple los requisitos
+     */
     @Override
     public Ciudad getCiudadById(Integer idCiudad){
         
@@ -34,6 +49,16 @@ public class CiudadDaoImpl extends AbstractDao<Ciudad> implements CiudadDaoI{
         return ciudad;
     }
     
+    /**
+     * Recupera un numero determinado de ciudades, de un pais determinado y que alguna de sus palabras
+     * comience por el testo introducido
+     * 
+     * @param codPais -> Codigo del país
+     * @param texto -> Cadena de texto que se va a buscar en el nombre de la ciudad
+     * @param limite -> Número de resultados máximos que se van a recuperar
+     * 
+     * @return ciudades -> Lista con las ciudades que cumplen los requisitos
+     */
     @Override
     public List<Ciudad> getCiudadesPaisTextoLimite(String codPais, String texto, Integer limite){
         List<Ciudad> ciudades = new ArrayList<Ciudad>();
@@ -61,6 +86,9 @@ public class CiudadDaoImpl extends AbstractDao<Ciudad> implements CiudadDaoI{
         return ciudades;
     }
     
+    /**
+     * Recupera la clase del objeto
+     */
     @Override
     public Class<Ciudad> getClase(){
         return Ciudad.class;

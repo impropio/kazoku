@@ -33,53 +33,104 @@ public class Tarea extends com.francisco.kazoku.basedatos.core.impl.AbstractEnti
 	@JoinColumn(name="usuario", updatable=false, insertable=false)
 	private Usuario usuario;
 
+	/**
+	 * Constructor sin parametros
+	 */
 	public Tarea() {
 	}
 
+	/**
+	 * Parametro id
+	 * @return id
+	 */
 	public int getId() {
 		return this.id;
 	}
 
+	/**
+	 * Parametro id
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * Parametro descripcion
+	 * @return descripcion
+	 */
 	public String getDescripcion() {
 		return this.descripcion;
 	}
 
+	/**
+	 * Parametro descripcion
+	 * @param descripcion
+	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
+	/**
+	 * Parametro fecha
+	 * @return fecha
+	 */
 	public Date getFecha() {
 		return this.fecha;
 	}
 
+	/**
+	 * Parametro fecha
+	 * @param fecha
+	 */
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 
+	/**
+	 * Parametro privada
+	 * @return privada
+	 */
 	public byte getPrivada() {
 		return this.privada;
 	}
 
+	/**
+	 * Parametro privada
+	 * @param privada
+	 */
 	public void setPrivada(byte privada) {
 		this.privada = privada;
 	}
 
+	/**
+	 * Parametro titulo
+	 * @return titulo
+	 */
 	public String getTitulo() {
 		return this.titulo;
 	}
 
+	/**
+	 * Parametro titulo
+	 * @param titulo
+	 */
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
+	/**
+	 * Parametro usuario
+	 * @return usuario
+	 */
 	public Usuario getUsuario() {
 		return this.usuario;
 	}
 
+	/**
+	 * Parametro usuario
+	 * @param usuario
+	 */
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}

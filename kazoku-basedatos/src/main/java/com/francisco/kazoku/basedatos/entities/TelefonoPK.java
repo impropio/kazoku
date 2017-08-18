@@ -17,21 +17,47 @@ public class TelefonoPK implements Serializable {
 
 	private String telefono;
 
+	/**
+	 * Constructor sin parametros
+	 */
 	public TelefonoPK() {
 	}
+	
+	/**
+	 * Parametro usuario
+	 * @return usuario
+	 */
 	public int getUsuario() {
 		return this.usuario;
 	}
+	
+	/**
+	 * PArametro usuario
+	 * @param usuario
+	 */
 	public void setUsuario(int usuario) {
 		this.usuario = usuario;
 	}
+	
+	/**
+	 * Parametro telefono
+	 * @return telefono
+	 */
 	public String getTelefono() {
 		return this.telefono;
 	}
+	
+	/**
+	 * Parametro telefono
+	 * @param telefono
+	 */
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
+	/**
+	 * Compara la clave del objeto
+	 */
 	public boolean equals(Object other) {
 		if (this == other) {
 			return true;
@@ -45,6 +71,9 @@ public class TelefonoPK implements Serializable {
 			&& this.telefono.equals(castOther.telefono);
 	}
 
+	/**
+	 * identificador hashCode
+	 */
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
@@ -53,4 +82,5 @@ public class TelefonoPK implements Serializable {
 		
 		return hash;
 	}
+	
 }

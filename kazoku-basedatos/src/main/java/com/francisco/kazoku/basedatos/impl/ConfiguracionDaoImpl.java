@@ -14,9 +14,22 @@ import com.francisco.kazoku.basedatos.core.impl.AbstractDao;
 import com.francisco.kazoku.basedatos.entities.Configuracion;
 import com.francisco.kazoku.basedatos.interfaces.ConfiguracionDaoI;
 
+/**
+ * 
+ * @author Francisco Moro
+ * @since 10/08/2017
+ * @version 0.1
+ *
+ */
 @Repository
 public class ConfiguracionDaoImpl extends AbstractDao<Configuracion> implements ConfiguracionDaoI{
 
+    /**
+     * Recupera la configuración general de la aplicación, como es la configuración general no es
+     * necesario pasar el id ya que siempre será 1
+     * 
+     * @return config -> Configuración general de la aplicación
+     */
     @Override
     public Configuracion getConfiguracion(){
         
@@ -42,17 +55,33 @@ public class ConfiguracionDaoImpl extends AbstractDao<Configuracion> implements 
         return config;
     }
     
+    /**
+     * Actualiza la configuración general de la aplicación
+     * 
+     * @param config
+     * 
+     * @return config -> con los parametros actualizados
+     */
     @Override
     public Configuracion actualizaConfiguracion(Configuracion config){
         return update(config);
     }
     
+    /**
+     * En caso de no existir datos de la configuración en la base de datos crea el campo
+     * para que el usuario la pueda personalizar
+     * 
+     * @return config -> Configuración básica de inicio
+     */
     public Configuracion crearConfiguracionBasica(){
         Configuracion conf = new Configuracion();
         conf.setId(1);
         return insert(conf);
     }
 
+    /**
+     * Recupera la clase del objeto
+     */
     @Override
     public Class<Configuracion> getClase(){
         return Configuracion.class;

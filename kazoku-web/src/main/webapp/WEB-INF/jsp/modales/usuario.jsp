@@ -71,7 +71,7 @@
 							<span><spring:message code="usuario.grupo.sanguineo"/>:</span>
 						</div>
 						<div class="col-sm-4">
-							<select id="gruposangineo" name="gruposangineo" class="form-control">
+							<select id="gruposanguineo" name="gruposanguineo" class="form-control">
 								<option value="-" selected><spring:message code="formulario.seleccione.opcion"/></option>
 								<c:forEach var="grupoSanguineo" items="${gruposSanguineos}">
 									<option value="${grupoSanguineo}">${grupoSanguineo.grupoSanguineo}</option>

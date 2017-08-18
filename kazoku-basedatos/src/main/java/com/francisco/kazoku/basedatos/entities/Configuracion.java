@@ -36,53 +36,104 @@ public class Configuracion extends com.francisco.kazoku.basedatos.core.impl.Abst
 	@JoinColumn(name="tipo_medidas")
 	private Medidas medidas;
 
+	/**
+	 * Constructor sin parametros
+	 */
 	public Configuracion() {
 	}
 
+	/**
+	 * Parametro id
+	 * @return id
+	 */
 	public int getId() {
 		return this.id;
 	}
 
+	/**
+	 * Parametro id
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * Parametro clipaApiId
+	 * @return climaApiId
+	 */
 	public String getClimaApiId() {
 		return this.climaApiId;
 	}
 
+	/**
+	 * Parametro clipaApiId
+	 * @param climaApiId
+	 */
 	public void setClimaApiId(String climaApiId) {
 		this.climaApiId = climaApiId;
 	}
 
+	/**
+	 * Parametro climaNumeroDias -> numero de dias que se obtendrán de la predicción
+	 * @return climaNumeroDias
+	 */
 	public Integer getClimaNumeroDias() {
 		return this.climaNumeroDias;
 	}
 
+	/**
+	 * Parametro climaNumeroDias -> numero de dias que se obtendrán de la predicción
+	 * @param climaNumeroDias
+	 */
 	public void setClimaNumeroDias(Integer climaNumeroDias) {
 		this.climaNumeroDias = climaNumeroDias;
 	}
 
+	/**
+	 * Parametro idioma
+	 * @return idioma
+	 */
 	public String getIdioma() {
 		return this.idioma;
 	}
 
+	/**
+	 * Parametro idioma
+	 * @param idioma
+	 */
 	public void setIdioma(String idioma) {
 		this.idioma = idioma;
 	}
 
+	/**
+	 * Parametro ciudad
+	 * @return ciudad
+	 */
 	public Ciudad getCiudad() {
 		return this.ciudad;
 	}
 
+	/**
+	 * Parametro ciudad
+	 * @param ciudad
+	 */
 	public void setCiudad(Ciudad ciudad) {
 		this.ciudad = ciudad;
 	}
 
+	/**
+	 * Parametro medidas -> sistema de medicion que se va a utilizar
+	 * @return medidas
+	 */
 	public Medidas getMedidas() {
 		return this.medidas;
 	}
 
+	/**
+	 * Parametro medidas -> sistema de medicion que se va a utilizar
+	 * @param medidas
+	 */
 	public void setMedidas(Medidas medidas) {
 		this.medidas = medidas;
 	}

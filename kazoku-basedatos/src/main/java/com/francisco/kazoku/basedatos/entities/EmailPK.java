@@ -17,21 +17,47 @@ public class EmailPK implements Serializable {
 
 	private String email;
 
+	/**
+	 * Constructor sin parametros
+	 */
 	public EmailPK() {
 	}
+	
+	/**
+	 * Parametro usuario
+	 * @return usuario
+	 */
 	public int getUsuario() {
 		return this.usuario;
 	}
+	
+	/**
+	 * Parametro usuario
+	 * @param usuario
+	 */
 	public void setUsuario(int usuario) {
 		this.usuario = usuario;
 	}
+	
+	/**
+	 * Parametro email
+	 * @return email
+	 */
 	public String getEmail() {
 		return this.email;
 	}
+	
+	/**
+	 * Parametro email
+	 * @param email
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	/**
+	 * Compara la clave de objeto
+	 */
 	public boolean equals(Object other) {
 		if (this == other) {
 			return true;
@@ -45,6 +71,9 @@ public class EmailPK implements Serializable {
 			&& this.email.equals(castOther.email);
 	}
 
+	/**
+	 * identificador hashCode
+	 */
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
@@ -53,4 +82,5 @@ public class EmailPK implements Serializable {
 		
 		return hash;
 	}
+	
 }

@@ -22,25 +22,49 @@ public class GrupoSanguineo extends com.francisco.kazoku.basedatos.core.impl.Abs
 	@OneToMany(mappedBy="grupoSanguineo")
 	private List<Usuario> listaUsuarios;
 
+	/**
+	 * Constructor con parametros
+	 */
 	public GrupoSanguineo() {
 	}
 
+	/**
+	 * Parametro grupo
+	 * @return grupo
+	 */
 	public String getGrupo() {
 		return this.grupo;
 	}
 
+	/**
+	 * Parametro grupo
+	 * @param grupo
+	 */
 	public void setGrupo(String grupo) {
 		this.grupo = grupo;
 	}
 
+	/**
+	 * Parametro listaUsuarios
+	 * @return listaUsuarios
+	 */
 	public List<Usuario> getListaUsuarios() {
 		return this.listaUsuarios;
 	}
 
+	/**
+	 * Parametro listaUsuarios
+	 * @param listaUsuarios
+	 */
 	public void setListaUsuarios(List<Usuario> listaUsuarios) {
 		this.listaUsuarios = listaUsuarios;
 	}
 
+	/**
+	 * Añade un usuario a la lista
+	 * @param usuario
+	 * @return usuario
+	 */
 	public Usuario addUsuario(Usuario usuario) {
 		getListaUsuarios().add(usuario);
 		usuario.setGrupoSanguineo(this);
@@ -48,6 +72,11 @@ public class GrupoSanguineo extends com.francisco.kazoku.basedatos.core.impl.Abs
 		return usuario;
 	}
 
+	/**
+	 * Elimina un usuario de la lista
+	 * @param usuario
+	 * @return usuario
+	 */
 	public Usuario removeUsuario(Usuario usuario) {
 		getListaUsuarios().remove(usuario);
 		usuario.setGrupoSanguineo(null);

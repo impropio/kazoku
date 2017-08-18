@@ -14,9 +14,23 @@ import com.francisco.kazoku.basedatos.core.impl.AbstractDao;
 import com.francisco.kazoku.basedatos.entities.Medidas;
 import com.francisco.kazoku.basedatos.interfaces.MedidasDaoI;
 
+/**
+ * 
+ * @author Francisco Moro
+ * @since 10/08/2017
+ * @version 0.1
+ *
+ */
 @Repository
 public class MedidasDaoImpl extends AbstractDao<Medidas> implements MedidasDaoI{
 
+    /**
+     * Recupera los sistemas de medida disponibles en la aplicación en el idioma del usuario
+     * 
+     * @param idioma
+     * 
+     * @return medidas -> lista con los distemas de medida disponibles en la aplicación
+     */
     @Override
     public List<Medidas> getMedidasIdioma(String idioma){
         List<Medidas> medidas = new ArrayList<Medidas>();
@@ -32,6 +46,13 @@ public class MedidasDaoImpl extends AbstractDao<Medidas> implements MedidasDaoI{
         return medidas;
     }
     
+    /**
+     * Recupera un sistema de medidas a traves de su id, recuperando todos sus parámetros
+     * 
+     * @param id -> identificador del sistema de medidas
+     * 
+     * @return medida -> Sistema de medidas que cumple los criterios
+     */
     @Override
     public Medidas getMedidasById(Integer id){
         final CriteriaBuilder cb = getCriteriaBuilder();
@@ -48,6 +69,9 @@ public class MedidasDaoImpl extends AbstractDao<Medidas> implements MedidasDaoI{
         return medida;
     }
 
+    /**
+     * Recupera la clase del objeto
+     */
     @Override
     public Class<Medidas> getClase(){
         return Medidas.class;
