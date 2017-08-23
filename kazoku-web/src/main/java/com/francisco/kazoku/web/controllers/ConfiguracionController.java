@@ -25,6 +25,12 @@ import com.francisco.kazoku.servicios.interfaces.ConfiguracionServiceI;
 import com.francisco.kazoku.servicios.interfaces.MedidasServiceI;
 import com.francisco.kazoku.servicios.interfaces.PaisServiceI;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 @Controller
 @RequestMapping(value = "/configuracion")
 public class ConfiguracionController{
@@ -49,7 +55,7 @@ public class ConfiguracionController{
      * 
      * @param session
      * @param model
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping
     public ModelAndView configuracion(final HttpSession sesion, final ModelMap model){
@@ -61,6 +67,13 @@ public class ConfiguracionController{
         return new ModelAndView("config", "model", model);
     }
     
+    /**
+     * Recupera las ciudades de un país que sus palabras comiencen por el texto introducido
+     * 
+     * @param pais
+     * @param texto
+     * @return json con la lista de ciudades
+     */
     @RequestMapping(value = "/ciudadespais", method = RequestMethod.POST)
     @ResponseBody
     public String getCiudadesPais(@RequestParam("pais") String pais, @RequestParam("ciudad") String texto){
@@ -70,6 +83,16 @@ public class ConfiguracionController{
         return gson.toJson(listaCiudades);
     }
     
+    /**
+     * Actualiza la configuración básica relativa a la ubicación para la predicción del tiempo
+     * 
+     * @param sesion
+     * @param response
+     * @param ciudad
+     * @param unidades
+     * @param numeroDias
+     * @param codigoApi
+     */
     @RequestMapping(value = "/actualizarubicacion", method = RequestMethod.POST)
     @ResponseBody
     public void setUbicacion(final HttpSession sesion, HttpServletResponse response, @RequestParam("ciudad") String ciudad, 

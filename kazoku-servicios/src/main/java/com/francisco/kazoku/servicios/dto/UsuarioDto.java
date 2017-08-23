@@ -2,7 +2,17 @@ package com.francisco.kazoku.servicios.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import com.francisco.kazoku.basedatos.entities.Alergia;
+import com.francisco.kazoku.basedatos.entities.Usuario;
+
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 public class UsuarioDto implements Serializable{
 
     /** Constante serialVersionUID */
@@ -10,27 +20,96 @@ public class UsuarioDto implements Serializable{
     
     private int id;
     private String nombre;
-    private String usaClave;
     private String clave;
     private Date fechaNacimiento;
     private String dni;
     private String pasaporte;
     private String segSocial;
+    private String grupoSanguineo;
+    private String codigoAlergias;
+    private String textoAlergias;
     
+    /**
+     * Constructor con parametros
+     */
     public UsuarioDto(){
         
     }
     
-    public UsuarioDto(int id, String nombre, String usaClave, String clave, Date fechaNacimiento, String dni,
-            String pasaporte, String segSocial){
+    /**
+     * Constructor con parametros
+     * 
+     * @param id
+     * @param nombre
+     * @param usaClave
+     * @param clave
+     * @param fechaNacimiento
+     * @param dni
+     * @param pasaporte
+     * @param segSocial
+     */
+    public UsuarioDto(int id, String nombre, String clave, Date fechaNacimiento, String dni,
+            String pasaporte, String segSocial, String codigoAlergias){
         this.id = id;
         this.nombre = nombre;
-        this.usaClave = usaClave;
         this.clave = clave;
         this.fechaNacimiento = fechaNacimiento;
         this.dni = dni;
         this.pasaporte = pasaporte;
         this.segSocial = segSocial;
+        this.codigoAlergias = codigoAlergias;
+    }
+    
+    /**
+     * Transforma una entity en un dto
+     * 
+     * @param usuario
+     * @return usuarioDto
+     */
+    public UsuarioDto entityToDto(Usuario usuario){
+        this.setId(usuario.getId());
+        this.setNombre(usuario.getNombre());
+        this.setClave(usuario.getClave());
+        this.setFechaNacimiento(usuario.getFechaNacimiento());
+        this.setDni(usuario.getDni());
+        this.setPasaporte(usuario.getPasaporte());
+        this.setSegSocial(usuario.getSeguridadSocial());
+        this.setGrupoSanguineo(usuario.getGrupoSanguineo());
+        if(usuario.getListaAlergias() != null){
+            List<Alergia> listaAlergias = usuario.getListaAlergias();
+            this.codigoAlergias = "";
+            this.textoAlergias = "";
+            for(Alergia alergia : listaAlergias){
+                if(this.codigoAlergias != ""){
+                    this.codigoAlergias += ",";
+                    this.textoAlergias += ", ";
+                }
+                this.codigoAlergias += alergia.getId();
+                this.textoAlergias += alergia.getElemento();
+            }
+        }
+        return this;
+    }
+    
+    /**
+     * Transforma un dto en una entity
+     * 
+     * @param usuarioDto
+     * @return usuario
+     */
+    public Usuario dtoToEntity(UsuarioDto usuarioDto){
+        Usuario usuario = new Usuario();
+        if(usuarioDto.getId() != 0){
+            usuario.setId(usuarioDto.getId());
+        }
+        usuario.setNombre(usuarioDto.getNombre());
+        usuario.setClave(usuarioDto.getClave());
+        usuario.setFechaNacimiento(usuarioDto.getFechaNacimiento());
+        usuario.setDni(usuarioDto.getDni());
+        usuario.setPasaporte(usuarioDto.getPasaporte());
+        usuario.setSeguridadSocial(usuarioDto.getSegSocial());
+        usuario.setGrupoSanguineo(usuarioDto.getGrupoSanguineo());
+        return usuario;
     }
     
     /**
@@ -56,18 +135,6 @@ public class UsuarioDto implements Serializable{
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-    /**
-     * @return the usaClave
-     */
-    public String getUsaClave() {
-        return usaClave;
-    }
-    /**
-     * @param usaClave the usaClave to set
-     */
-    public void setUsaClave(String usaClave) {
-        this.usaClave = usaClave;
     }
     /**
      * @return the clave
@@ -129,6 +196,47 @@ public class UsuarioDto implements Serializable{
     public void setSegSocial(String segSocial) {
         this.segSocial = segSocial;
     }
-    
+
+    /**
+     * @return the grupoSanguineo
+     */
+    public String getGrupoSanguineo(){
+        return grupoSanguineo;
+    }
+
+    /**
+     * @param grupoSanguineo the grupoSanguineo to set
+     */
+    public void setGrupoSanguineo(String grupoSanguineo){
+        this.grupoSanguineo = grupoSanguineo;
+    }
+
+    /**
+     * @return the codigoAlergias
+     */
+    public String getCodigoAlergias(){
+        return codigoAlergias;
+    }
+
+    /**
+     * @param codigoAlergias the codigoAlergias to set
+     */
+    public void setCodigoAlergias(String codigoAlergias){
+        this.codigoAlergias = codigoAlergias;
+    }
+
+    /**
+     * @return the textoAlergias
+     */
+    public String getTextoAlergias(){
+        return textoAlergias;
+    }
+
+    /**
+     * @param textoAlergias the textoAlergias to set
+     */
+    public void setTextoAlergias(String textoAlergias){
+        this.textoAlergias = textoAlergias;
+    }
     
 }

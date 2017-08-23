@@ -16,9 +16,8 @@ import com.francisco.kazoku.basedatos.interfaces.CiudadDaoI;
 
 /**
  * 
- * @author Francisco Moro
- * @since 10/08/2017
- * @version 0.1
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
  *
  */
 @Repository
@@ -29,7 +28,6 @@ public class CiudadDaoImpl extends AbstractDao<Ciudad> implements CiudadDaoI{
      * ordenada por nombre y con todos los parametros
      * 
      * @param idCiudad
-     * 
      * @return ciudad -> Ciudad que cumple los requisitos
      */
     @Override
@@ -56,7 +54,6 @@ public class CiudadDaoImpl extends AbstractDao<Ciudad> implements CiudadDaoI{
      * @param codPais -> Codigo del país
      * @param texto -> Cadena de texto que se va a buscar en el nombre de la ciudad
      * @param limite -> Número de resultados máximos que se van a recuperar
-     * 
      * @return ciudades -> Lista con las ciudades que cumplen los requisitos
      */
     @Override

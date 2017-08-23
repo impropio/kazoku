@@ -14,6 +14,12 @@ import com.francisco.kazoku.basedatos.interfaces.MedidasDaoI;
 import com.francisco.kazoku.servicios.dto.ConfiguracionDto;
 import com.francisco.kazoku.servicios.interfaces.ConfiguracionServiceI;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 @Service
 public class ConfiguracionServiceImpl implements ConfiguracionServiceI{
     
@@ -26,6 +32,11 @@ public class ConfiguracionServiceImpl implements ConfiguracionServiceI{
     @Autowired
     private MedidasDaoI medidasDao;
     
+    /**
+     * Recupera la configuración básica de la aplicación
+     * 
+     * @return confDto
+     */
     @Override
     public ConfiguracionDto getConfiguracion(){
         Configuracion conf = configDao.getConfiguracion();
@@ -33,6 +44,12 @@ public class ConfiguracionServiceImpl implements ConfiguracionServiceI{
         return confDto.entityToDto(conf);
     }
     
+    /**
+     * Actualiza la configuración básica de la aplicación
+     * 
+     * @param configDto
+     * @return configDto -> con los parámetros actualizados
+     */
     @Override
     @Transactional
     public ConfiguracionDto actualizaConfiguracion(ConfiguracionDto configDto){
@@ -61,4 +78,5 @@ public class ConfiguracionServiceImpl implements ConfiguracionServiceI{
         
         return confDto;
     }
+    
 }

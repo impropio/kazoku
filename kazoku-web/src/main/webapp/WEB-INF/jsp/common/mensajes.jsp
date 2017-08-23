@@ -11,6 +11,10 @@ var diccionario = {
 		ubicacionNoActualizada:'<spring:message code="configuracion.ubicacion.no.actualizada"/>',
 		modoNocheActivado:'<spring:message code="inicio.modo.noche.desactivado"/>',
 		modoNocheDesactivado:'<spring:message code="inicio.modo.noche.activado"/>',
-		avisoContrasena:'<spring:message code="usuario.aviso.contrasena"/>'
+		avisoContrasena:'<spring:message code="usuario.aviso.contrasena"/>',
+		campoObligatorio:'<spring:message code="formulario.campo.obligatorio"/>',
+		errorRepetirClave:'<spring:message code="formulario.repetir.clave.error"/>',
+		formularioDatosGrabados:'<spring:message code="formulario.datos.grabados"/>',
+		formularioErrorDatosGrabados:'<spring:message code="formulario.error.datos.grabados"/>'
 	};
 </script>

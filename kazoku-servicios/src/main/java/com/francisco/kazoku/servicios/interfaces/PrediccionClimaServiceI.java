@@ -4,7 +4,8 @@ import com.francisco.kazoku.servicios.dto.CiudadClimaDto;
 
 /**
  * 
- * @author Francisco Moro
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
  *
  */
 public interface PrediccionClimaServiceI {

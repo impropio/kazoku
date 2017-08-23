@@ -11,12 +11,24 @@ import com.francisco.kazoku.basedatos.interfaces.PaisDaoI;
 import com.francisco.kazoku.servicios.dto.PaisDto;
 import com.francisco.kazoku.servicios.interfaces.PaisServiceI;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 @Service
 public class PaisServiceImpl implements PaisServiceI{
 
     @Autowired
     private PaisDaoI paisDao;
     
+    /**
+     * Recupera la lista de paises en el idioma del usuario
+     * 
+     * @param idioma
+     * @return paisesDto -> lista de paises
+     */
     @Override
     public List<PaisDto> getPaises(String idioma){
         List<PaisDto> paisesDto = new ArrayList<PaisDto>();
@@ -30,6 +42,13 @@ public class PaisServiceImpl implements PaisServiceI{
         return paisesDto;
     }
 
+    /**
+     * Recupera un pais en el idioma del usuario basandose en su id
+     * 
+     * @param idioma
+     * @param codPais
+     * @return paisDto
+     */
     @Override
     public PaisDto getPaiseById(String idioma, String codPais){
         PaisDto paisDto = new PaisDto();

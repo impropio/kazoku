@@ -4,7 +4,8 @@ import com.francisco.kazoku.comunicacion.dto.CiudadClima;
 
 /**
  * 
- * @author Francisco Moro
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
  *
  */
 public interface PrediccionClimaDaoI {
@@ -28,14 +29,14 @@ public interface PrediccionClimaDaoI {
      */
     CiudadClima getPredicciones(String idCiudad, String unidades, String apiId, Integer numeroDias);
     
-    /**
-     * 
-     * @param ciudadNombre
-     * @param limite
-     * @param unidades
-     * @param apiId
-     * @return
-     */
-    CiudadClima getPrediccionesNombreCiudad(String ciudadNombre, String limite, String unidades, String apiId);
+//    /**
+//     * 
+//     * @param ciudadNombre
+//     * @param limite
+//     * @param unidades
+//     * @param apiId
+//     * @return
+//     */
+//    CiudadClima getPrediccionesNombreCiudad(String ciudadNombre, String limite, String unidades, String apiId);
     
 }

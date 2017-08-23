@@ -1,10 +1,16 @@
 package com.francisco.kazoku.web.controllers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,49 +20,83 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.francisco.kazoku.servicios.dto.ConfiguracionDto;
+import com.francisco.kazoku.servicios.dto.UsuarioDto;
 import com.francisco.kazoku.servicios.interfaces.ConfiguracionServiceI;
-import com.francisco.kazoku.servicios.interfaces.GrupoSanguineoServiceI;
+import com.francisco.kazoku.servicios.interfaces.UsuarioServiceI;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 @Controller
 @RequestMapping(value = "/usuario")
 public class UsuarioController{
     
     @Autowired
+    MessageSource messageSource;
+    
+    @Autowired
     ConfiguracionServiceI confService;
     
     @Autowired
-    GrupoSanguineoServiceI grupoSanguineoService;
+    UsuarioServiceI usuarioService;
+    
+    Locale locale = LocaleContextHolder.getLocale();
     
     /**
      * Carga de la pantalla de configuración
      * 
      * @param session
      * @param model
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping
     public ModelAndView usuario(final HttpSession sesion, final ModelMap model){
-        model.addAttribute("gruposSanguineos", grupoSanguineoService.getGruposSanguineos());
+        model.addAttribute("gruposSanguineos", messageSource.getMessage("usuario.grupo.sanguineo.tipo", null, locale).split(","));
         return new ModelAndView("usuario", "model", model);
     }
     
+    /**
+     * Actualiza la información de un usuario ya existente o crea un usuario nuevo
+     * 
+     * @param idUsuario
+     * @param nombre
+     * @param clave
+     * @param nacimiento
+     * @param dni
+     * @param pasaporte
+     * @param segSocial
+     * @param grupoSanguineo
+     * @param codigosAlergias
+     * @throws ParseException 
+     */
     @RequestMapping(value = "/actualizar", method = RequestMethod.POST)
     @ResponseBody
-    public void actualizarUsuario(@RequestParam("id_usuario") Integer idUsuario, @RequestParam("nombre") String nombre,
-            @RequestParam("clave") String clave, @RequestParam("clave2") String clave2, @RequestParam("nacimiento") Date nacimiento,
-            @RequestParam("dni") String dni, @RequestParam("pasaporte") String pasaporte, @RequestParam("segsocial") String segSocial,
-            @RequestParam("gruposanguineo") String grupoSanguineo, @RequestParam("cod_alergias") String codigosAlergias){
+    public void actualizarUsuario(@RequestParam("id") Integer idUsuario, @RequestParam("nombre") String nombre,
+            @RequestParam("clave") String clave, @RequestParam("nacimiento") String nacimiento, @RequestParam("dni") String dni, 
+            @RequestParam("pasaporte") String pasaporte, @RequestParam("segSocial") String segSocial,
+            @RequestParam("grupoSanguineo") String grupoSanguineo, @RequestParam("codigosAlergias") String codigosAlergias) throws ParseException{
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date fechaNaciemiento = sdf.parse(nacimiento);
+        UsuarioDto usuarioDto = new UsuarioDto();
         
-        
-        if("".equals(idUsuario)){
-            // Se crea un usuario nuevo y se recupera su id
-            
+        if(idUsuario != null){
+            usuarioDto.setId(idUsuario);
         }else{
-            // Se actualiza el usuario
-            
+            usuarioDto.setId(0);
         }
+        usuarioDto.setNombre(nombre);
+        usuarioDto.setClave(clave);
+        usuarioDto.setFechaNacimiento(fechaNaciemiento);
+        usuarioDto.setDni(dni);
+        usuarioDto.setPasaporte(pasaporte);
+        usuarioDto.setSegSocial(segSocial);
+        usuarioDto.setGrupoSanguineo(grupoSanguineo);
+        usuarioDto.setCodigoAlergias(codigosAlergias);
         
-        
+        usuarioService.actualizarUsuario(usuarioDto);
         
     }
     

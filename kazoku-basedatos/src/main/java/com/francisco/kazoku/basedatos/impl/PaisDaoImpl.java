@@ -14,9 +14,21 @@ import com.francisco.kazoku.basedatos.core.impl.AbstractDao;
 import com.francisco.kazoku.basedatos.entities.Pais;
 import com.francisco.kazoku.basedatos.interfaces.PaisDaoI;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 @Repository
 public class PaisDaoImpl extends AbstractDao<Pais> implements PaisDaoI{
 
+    /**
+     * Recupera la lista de paises en el idioma del usuario
+     * 
+     * @param idioma -> idioma del usuario
+     * @return paises -> lista de los paises en el idioma del usuario
+     */
     @Override
     public List<Pais> getPaises(String idioma){
         List<Pais> paises = new ArrayList<Pais>();
@@ -33,6 +45,13 @@ public class PaisDaoImpl extends AbstractDao<Pais> implements PaisDaoI{
         return paises;
     }
     
+    /**
+     * Recupera un pais según su id
+     * 
+     * @param idioma -> idioma del usuario
+     * @param codPais -> código del país
+     * @return pais -> país que coincide con los parámetros de búsqueda
+     */
     @Override
     public Pais getPaisById(String idioma, String codPais){
         
@@ -51,6 +70,9 @@ public class PaisDaoImpl extends AbstractDao<Pais> implements PaisDaoI{
         return pais;
     }
 
+    /**
+     * Recupera la clase del objeto
+     */
     @Override
     public Class<Pais> getClase(){
         return Pais.class;

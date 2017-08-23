@@ -4,6 +4,12 @@ import java.io.Serializable;
 
 import com.francisco.kazoku.basedatos.entities.Ciudad;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 public class CiudadDto implements Serializable{
 
     /** Constante serialVersionUID */
@@ -13,16 +19,32 @@ public class CiudadDto implements Serializable{
     private String codPais;
     private String nombreCiudad;
     
+    /**
+     * Constructor sin parámetros
+     */
     public CiudadDto(){
         
     }
     
+    /**
+     * Constructor con parámetros
+     * 
+     * @param idCiudad
+     * @param nombre
+     * @param codPais
+     */
     public CiudadDto(Integer idCiudad, String nombre, String codPais){
         this.idCiudad = idCiudad;
         this.nombreCiudad = nombre;
         this.codPais = codPais;
     }
     
+    /**
+     * Transforma la entity en el dto
+     * 
+     * @param ciudad
+     * @return ciudadDto
+     */
     public CiudadDto entityToDto(Ciudad ciudad){
         this.idCiudad = ciudad.getId();
         this.codPais = ciudad.getCodPais();

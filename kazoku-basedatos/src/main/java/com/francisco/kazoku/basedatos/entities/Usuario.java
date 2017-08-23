@@ -37,9 +37,6 @@ public class Usuario extends com.francisco.kazoku.basedatos.core.impl.AbstractEn
 	@Column(name="usa_clave")
 	private byte usaClave;
 
-	@Column(name="usuario_alergia")
-	private int usuarioAlergia;
-
 	//bi-directional many-to-one association to Email
 	@OneToMany(mappedBy="usuario")
 	private List<Email> listaEmails;
@@ -60,10 +57,8 @@ public class Usuario extends com.francisco.kazoku.basedatos.core.impl.AbstractEn
 	@OneToMany(mappedBy="usuario")
 	private List<Telefono> listaTelefonos;
 
-	//bi-directional many-to-one association to GrupoSanguineo
-	@ManyToOne
-	@JoinColumn(name="grupo_sang", updatable=false, insertable=false)
-	private GrupoSanguineo grupoSanguineo;
+	@Column(name="grupo_sang")
+	private String grupoSanguineo;
 
 	//bi-directional many-to-many association to Alergia
 	@ManyToMany
@@ -210,22 +205,6 @@ public class Usuario extends com.francisco.kazoku.basedatos.core.impl.AbstractEn
 	 */
 	public void setUsaClave(byte usaClave) {
 		this.usaClave = usaClave;
-	}
-
-	/**
-	 * Parametro usuarioAlergia
-	 * @return usuarioAlergia
-	 */
-	public int getUsuarioAlergia() {
-		return this.usuarioAlergia;
-	}
-
-	/**
-	 * Parametro usuarioAlergia
-	 * @param usuarioAlergia
-	 */
-	public void setUsuarioAlergia(int usuarioAlergia) {
-		this.usuarioAlergia = usuarioAlergia;
 	}
 
 	/**
@@ -427,22 +406,22 @@ public class Usuario extends com.francisco.kazoku.basedatos.core.impl.AbstractEn
 
 		return telefono;
 	}
-
+	
 	/**
-	 * Parametro grupoSanguineo
-	 * @return grupoSanguineo
-	 */
-	public GrupoSanguineo getGrupoSanguineo() {
-		return this.grupoSanguineo;
-	}
+     * Parametro idGrupoSanguineo
+     * @return idGrupoSanguineo
+     */
+    public String getGrupoSanguineo() {
+        return this.grupoSanguineo;
+    }
 
-	/**
-	 * Parametro grupoSanguineo
-	 * @param grupoSanguineo
-	 */
-	public void setGrupoSanguineo(GrupoSanguineo grupoSanguineo) {
-		this.grupoSanguineo = grupoSanguineo;
-	}
+    /**
+     * Parametro idGrupoSanguineo
+     * @param idGrupoSanguineo
+     */
+    public void setGrupoSanguineo(String grupoSanguineo) {
+        this.grupoSanguineo = grupoSanguineo;
+    }
 
 	/**
 	 * Parametro listaAlergias

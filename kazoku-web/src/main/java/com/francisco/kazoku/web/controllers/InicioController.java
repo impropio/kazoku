@@ -13,6 +13,12 @@ import com.francisco.kazoku.servicios.dto.ConfiguracionDto;
 import com.francisco.kazoku.servicios.interfaces.ConfiguracionServiceI;
 import com.francisco.kazoku.servicios.interfaces.PrediccionClimaServiceI;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 @Controller
 @RequestMapping(value = "/")
 public class InicioController{

@@ -8,7 +8,8 @@ import com.francisco.kazoku.comunicacion.dto.PrediccionClima;
 
 /**
  * 
- * @author Francisco Moro
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
  *
  */
 public class PrediccionClimaDto implements Serializable{

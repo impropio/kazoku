@@ -11,12 +11,24 @@ import com.francisco.kazoku.basedatos.interfaces.CiudadDaoI;
 import com.francisco.kazoku.servicios.dto.CiudadDto;
 import com.francisco.kazoku.servicios.interfaces.CiudadServiceI;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 @Service
 public class CiudadServiceImpl implements CiudadServiceI{
 
     @Autowired
     private CiudadDaoI ciudadDao;
 
+    /**
+     * Recupera una ciudad por si id
+     * 
+     * @param idCiudad
+     * @return ciudadDto
+     */
     @Override
     public CiudadDto getCiudadById(Integer idCiudad){
         CiudadDto ciudadDto = new CiudadDto();
@@ -27,6 +39,14 @@ public class CiudadServiceImpl implements CiudadServiceI{
         return ciudadDto;
     }
 
+    /**
+     * Recupera una lista de ciudades del tamaño indicado, basandose en el codigo de país y el comienzo de sus palabras
+     * 
+     * @param codPais
+     * @param texto
+     * @param limite
+     * @return ciudadesDto -> lista de ciudades que cumplen los requisitos
+     */
     @Override
     public List<CiudadDto> getCiudadesPaisTextoLimite(String codPais, String texto, Integer limite){
         List<CiudadDto> ciudadesDto = new ArrayList<CiudadDto>();

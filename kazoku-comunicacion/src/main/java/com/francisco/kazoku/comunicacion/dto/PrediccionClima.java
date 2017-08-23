@@ -5,7 +5,8 @@ import java.util.Date;
 
 /**
  * 
- * @author Francisco Moro
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
  *
  */
 public class PrediccionClima{

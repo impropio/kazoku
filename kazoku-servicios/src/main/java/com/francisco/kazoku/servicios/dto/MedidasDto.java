@@ -4,6 +4,12 @@ import java.io.Serializable;
 
 import com.francisco.kazoku.basedatos.entities.Medidas;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 public class MedidasDto implements Serializable{
 
     /** Constante serialVersionUID. */
@@ -12,15 +18,30 @@ public class MedidasDto implements Serializable{
     private Integer idMedida;
     private String medida;
     
+    /**
+     * Constructor sin parámetros
+     */
     public MedidasDto(){
         
     }
     
+    /**
+     * Constructor con parámetros
+     * 
+     * @param idMedida
+     * @param medida
+     */
     public MedidasDto(Integer idMedida, String medida){
         this.idMedida = idMedida;
         this.medida = medida;
     }
     
+    /**
+     * Transforma la entity en el dto
+     * 
+     * @param medidas
+     * @return medidasDto
+     */
     public MedidasDto entityToDto(Medidas medidas){
         this.idMedida = medidas.getId();
         this.medida = medidas.getMedida() != null?medidas.getMedida():"metric";
@@ -51,7 +72,5 @@ public class MedidasDto implements Serializable{
     public void setMedida(String medida){
         this.medida = medida;
     }
-    
-    
     
 }

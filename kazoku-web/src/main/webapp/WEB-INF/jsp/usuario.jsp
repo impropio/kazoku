@@ -24,7 +24,6 @@
 		<!-- propios -->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/custom-notify.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/general.js"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/usuario.js"></script>
 	</head>
 	<body>
 		<%@ include file="common/mensajes.jsp" %>

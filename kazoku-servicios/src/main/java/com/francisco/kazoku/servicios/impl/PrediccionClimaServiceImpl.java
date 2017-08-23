@@ -8,12 +8,26 @@ import com.francisco.kazoku.comunicacion.interfaces.PrediccionClimaDaoI;
 import com.francisco.kazoku.servicios.dto.CiudadClimaDto;
 import com.francisco.kazoku.servicios.interfaces.PrediccionClimaServiceI;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 @Service
 public class PrediccionClimaServiceImpl implements PrediccionClimaServiceI{
 
     @Autowired
     PrediccionClimaDaoI prediccionDao;
     
+    /**
+     * Recupera la predicción del clima para hoy para la ciudad seleccionada
+     * 
+     * @param idCiudad
+     * @param unidades
+     * @param apiId -> id del usuario en el sistema openweathermap
+     * @return ciudadDto -> objeto ciudad con los parámetros del clima
+     */
     @Override
     public CiudadClimaDto getPrediccionActual(String idCiudad, String unidades, String apiId) {
         CiudadClimaDto ciudadDto = new CiudadClimaDto();
@@ -21,6 +35,15 @@ public class PrediccionClimaServiceImpl implements PrediccionClimaServiceI{
         return ciudadDto.objectToDto(ciudad);
     }
     
+    /**
+     * Recupera la predicción del tiempo para el número de dias y la ciudad seleccionados
+     * 
+     * @param idCiudad
+     * @param unidades
+     * @param apiId -> id del usuario en el sistema openweathermap
+     * @param numeroDias
+     * @return ciudadDto -> objeto ciudad con los parámetros del clima
+     */
     @Override
     public CiudadClimaDto getPredicciones(String idCiudad, String unidades, String apiId, Integer numeroDias) {
         CiudadClimaDto ciudadDto = new CiudadClimaDto();

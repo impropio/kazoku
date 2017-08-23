@@ -16,9 +16,8 @@ import com.francisco.kazoku.basedatos.interfaces.ConfiguracionDaoI;
 
 /**
  * 
- * @author Francisco Moro
- * @since 10/08/2017
- * @version 0.1
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
  *
  */
 @Repository
@@ -59,7 +58,6 @@ public class ConfiguracionDaoImpl extends AbstractDao<Configuracion> implements 
      * Actualiza la configuración general de la aplicación
      * 
      * @param config
-     * 
      * @return config -> con los parametros actualizados
      */
     @Override

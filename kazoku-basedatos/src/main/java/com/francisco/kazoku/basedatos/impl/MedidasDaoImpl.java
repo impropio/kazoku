@@ -16,9 +16,8 @@ import com.francisco.kazoku.basedatos.interfaces.MedidasDaoI;
 
 /**
  * 
- * @author Francisco Moro
- * @since 10/08/2017
- * @version 0.1
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
  *
  */
 @Repository
@@ -28,7 +27,6 @@ public class MedidasDaoImpl extends AbstractDao<Medidas> implements MedidasDaoI{
      * Recupera los sistemas de medida disponibles en la aplicación en el idioma del usuario
      * 
      * @param idioma
-     * 
      * @return medidas -> lista con los distemas de medida disponibles en la aplicación
      */
     @Override
@@ -50,7 +48,6 @@ public class MedidasDaoImpl extends AbstractDao<Medidas> implements MedidasDaoI{
      * Recupera un sistema de medidas a traves de su id, recuperando todos sus parámetros
      * 
      * @param id -> identificador del sistema de medidas
-     * 
      * @return medida -> Sistema de medidas que cumple los criterios
      */
     @Override

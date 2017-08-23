@@ -4,6 +4,12 @@ import java.io.Serializable;
 
 import com.francisco.kazoku.basedatos.entities.Configuracion;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 public class ConfiguracionDto implements Serializable{
 
     /** Constante serialVersionUID */
@@ -37,6 +43,11 @@ public class ConfiguracionDto implements Serializable{
         this.idioma = idioma;
     }
     
+    /**
+     * Transforma la entity en el dto
+     * @param conf
+     * @return configuracionDto
+     */
     public ConfiguracionDto entityToDto(Configuracion conf){
         this.codigoPais = conf.getCiudad() != null?conf.getCiudad().getPais().getCodigo():"-";
         this.idioma = conf.getIdioma();

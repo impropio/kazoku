@@ -9,6 +9,12 @@ import java.util.List;
 import com.francisco.kazoku.comunicacion.dto.CiudadClima;
 import com.francisco.kazoku.comunicacion.dto.PrediccionClima;
 
+/**
+ * 
+ * @author Francisco Moro <jfmoro@gmail.com>
+ * @since 0.1
+ *
+ */
 public class CiudadClimaDto implements Serializable{
 	
     /** Constante serialVersionUID. */
