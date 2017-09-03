@@ -84,7 +84,7 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="input-group">
-								<input type="text" id="mod_usu_alergias" name="mod_usu_alergias" class="form-control" value="lacteos" disabled>
+								<input type="text" id="mod_usu_alergias" name="mod_usu_alergias" class="form-control" value="" disabled>
 								<span class="input-group-addon ampliar-alergias">...</span>
 								<input type="text" id="mod_usu_cod_alergias" name="mod_usu_cod_alergias" class="oculto">
 							</div>

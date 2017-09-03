@@ -20,6 +20,7 @@ public class UsuarioDto implements Serializable{
     
     private int id;
     private String nombre;
+    private Boolean usaClave;
     private String clave;
     private Date fechaNacimiento;
     private String dni;
@@ -69,7 +70,9 @@ public class UsuarioDto implements Serializable{
     public UsuarioDto entityToDto(Usuario usuario){
         this.setId(usuario.getId());
         this.setNombre(usuario.getNombre());
-        this.setClave(usuario.getClave());
+        if(usuario.getClave() != null && "".equals(usuario.getClave())){
+            this.usaClave = true;
+        }
         this.setFechaNacimiento(usuario.getFechaNacimiento());
         this.setDni(usuario.getDni());
         this.setPasaporte(usuario.getPasaporte());
@@ -136,6 +139,20 @@ public class UsuarioDto implements Serializable{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    /**
+     * @return the usaClave
+     */
+    public Boolean getUsaClave(){
+        return usaClave;
+    }
+
+    /**
+     * @param usaClave the usaClave to set
+     */
+    public void setUsaClave(Boolean usaClave){
+        this.usaClave = usaClave;
+    }
+
     /**
      * @return the clave
      */

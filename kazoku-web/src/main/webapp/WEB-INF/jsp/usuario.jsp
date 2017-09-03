@@ -13,6 +13,7 @@
 		<!-- styles -->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/bootstrap-3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/DataTables/datatables.min.css">
 		<!-- propios -->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/general.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/modal.css">
@@ -21,9 +22,11 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery-1.11.2.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/bootstrap-3.3.7/js/notify.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/vendor/DataTables/datatables.min.js"></script>
 		<!-- propios -->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/custom-notify.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/general.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/usuario.js"></script>
 	</head>
 	<body>
 		<%@ include file="common/mensajes.jsp" %>
@@ -41,8 +44,34 @@
 			</nav>
 		</header>
 		<div class="contenedor" id="contenedor">
-			<button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal_usuario"><em class="fa fa-user-plus fa-2x"></em></button>
+			<div class="row">
+				<button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal_usuario"><em class="fa fa-user-plus fa-2x"></em></button>
+			</div>
+			<div class="row linea">
+				<div class="col-sm-12">
+					<div id="tabla_usuarios">
+						<table id="tabla" class="table table-hover">
+							<thead>
+								<tr>
+									<th>Acción</th>
+									<th>Nombre</th>
+									<th>Privacidad</th>
+									<th>Fecha de Nacimiento</th>
+									<th>DNI</th>
+									<th>Pasaporte</th>
+									<th>Seguridad Social</th>
+									<th>Grupo Sanguíneo</th>
+									<th>Alergias</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
+		<%-- Modales --%>
 		<%@ include file="modales/usuario.jsp" %>
 	</body>
 </html>

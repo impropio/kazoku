@@ -1,6 +1,10 @@
 body{
 	height: 100vh;
 	background-color:#F0F3F4;
+/*
+	background-color: black;
+	color: white !important;
+*/
 }
 .contenedor-principal{
 	height: 100vh;
