@@ -2,7 +2,9 @@ package com.francisco.kazoku.web.controllers;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -23,6 +25,7 @@ import com.francisco.kazoku.servicios.dto.ConfiguracionDto;
 import com.francisco.kazoku.servicios.dto.UsuarioDto;
 import com.francisco.kazoku.servicios.interfaces.ConfiguracionServiceI;
 import com.francisco.kazoku.servicios.interfaces.UsuarioServiceI;
+import com.google.gson.Gson;
 
 /**
  * 
@@ -56,6 +59,15 @@ public class UsuarioController{
     public ModelAndView usuario(final HttpSession sesion, final ModelMap model){
         model.addAttribute("gruposSanguineos", messageSource.getMessage("usuario.grupo.sanguineo.tipo", null, locale).split(","));
         return new ModelAndView("usuario", "model", model);
+    }
+    
+    @RequestMapping(value = "/listausuarios", method = RequestMethod.POST)
+    @ResponseBody
+    public String listaUsuarios(){
+        List<UsuarioDto> listaUsuarios = new ArrayList<UsuarioDto>();
+        Gson gson = new Gson();
+        listaUsuarios = usuarioService.getUsuarios();
+        return gson.toJson(listaUsuarios);
     }
     
     /**
