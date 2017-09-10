@@ -21,7 +21,7 @@ public class JavaBeanTest {
         JavaBeanTester.test(Email.class, empty);
         JavaBeanTester.test(EmailPK.class, empty);
         JavaBeanTester.test(Garantia.class, empty);
-        JavaBeanTester.test(GravedadAlergia.class, empty);
+        JavaBeanTester.test(Gravedad.class, empty);
         JavaBeanTester.test(Medidas.class, empty);
         JavaBeanTester.test(Pais.class, empty);
         JavaBeanTester.test(Peso.class, empty);
@@ -31,6 +31,7 @@ public class JavaBeanTest {
         JavaBeanTester.test(TelefonoPK.class, empty);
         JavaBeanTester.test(TipoAlergia.class, empty);
         JavaBeanTester.test(Usuario.class, empty);
+        JavaBeanTester.test(UsuarioAlergia.class, empty);
     }
 
 }

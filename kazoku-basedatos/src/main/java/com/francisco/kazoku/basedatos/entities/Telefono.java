@@ -26,72 +26,37 @@ public class Telefono extends com.francisco.kazoku.basedatos.core.impl.AbstractE
 	@JoinColumn(name="usuario", updatable=false, insertable=false)
 	private Usuario usuario;
 
-	/**
-	 * Constructor sin parametros
-	 */
 	public Telefono() {
 	}
 
-	/**
-	 * id compuesto de telefono
-	 * @return id
-	 */
 	public TelefonoPK getId() {
 		return this.id;
 	}
 
-	/**
-	 * id conpuesto de telefono
-	 * @param id
-	 */
 	public void setId(TelefonoPK id) {
 		this.id = id;
 	}
 
-	/**
-	 * Parametro alias
-	 * @return alias
-	 */
 	public String getAlias() {
 		return this.alias;
 	}
 
-	/**
-	 * Parametro alias
-	 * @param alias
-	 */
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
 
-	/**
-	 * Parametro principal
-	 * @return principal
-	 */
 	public byte getPrincipal() {
 		return this.principal;
 	}
 
-	/**
-	 * Parametro principal
-	 * @param principal
-	 */
 	public void setPrincipal(byte principal) {
 		this.principal = principal;
 	}
 
-	/**
-	 * Parametro usuario
-	 * @return usuario
-	 */
 	public Usuario getUsuario() {
 		return this.usuario;
 	}
 
-	/**
-	 * Parametro usuario
-	 * @param usuario
-	 */
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}

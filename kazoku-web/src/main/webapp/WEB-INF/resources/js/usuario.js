@@ -1,43 +1,42 @@
 $(document).ready(function(){
 	var table = $('#tabla').DataTable({
 		ajax: {
-			url: diccionario.pageContext + "/usuario/listausuarios",
-			type: "GET"
+			url: diccionario.pageContext + "/usuario/listausuarios"
 		},
 		columns: [
 			{
-				orderable: false,
-				render: function(data, type, full, meta){
-					return '<a><span class="glyphicon glyphicon-time"></span> </a><a><span class="glyphicon glyphicon-comment"></span></a>';
-				}
+//				orderable: false,
+//				render: function(data, type, full, meta){
+//					return '<a><span class="glyphicon glyphicon-time"></span> </a><a><span class="glyphicon glyphicon-comment"></span></a>';
+//				}
 			},
 			{
-				data: "nombre"
+				'data': "nombre"
 			},
 			{
-				render: function(data, type, full, meta){
-					return '<a><span class="glyphicon glyphicon-time"></span></a>';
-				}
+//				render: function(data, type, full, meta){
+//					return '<a><span class="glyphicon glyphicon-time"></span></a>';
+//				}
 			},
 			{
-				data: "fechaNacimiento"
+//				data: "fechaNacimiento"
 			},
 			{
-				data: "dni"
+				'data': "dni"
 			},
 			{
-				data: "pasaporte"
+//				data: "pasaporte"
 			},
 			{
-				data: "segSocial"
+//				data: "segSocial"
 			},
 			{
-				data: "grupoSanguineo"
+//				data: "grupoSanguineo"
 			},
 			{
-				render: function(data, type, full, meta){
-					return '<a><span class="glyphicon glyphicon-time"></span></a>';
-				}
+//				render: function(data, type, full, meta){
+//					return '<a><span class="glyphicon glyphicon-time"></span></a>';
+//				}
 			}
 		]
 	});

@@ -2,13 +2,14 @@ package com.francisco.kazoku.web.controllers;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ import com.francisco.kazoku.servicios.dto.ConfiguracionDto;
 import com.francisco.kazoku.servicios.dto.UsuarioDto;
 import com.francisco.kazoku.servicios.interfaces.ConfiguracionServiceI;
 import com.francisco.kazoku.servicios.interfaces.UsuarioServiceI;
+import com.google.gson.Gson;
 
 /**
  * 
@@ -56,6 +58,21 @@ public class UsuarioController{
     public ModelAndView usuario(final HttpSession sesion, final ModelMap model){
         model.addAttribute("gruposSanguineos", messageSource.getMessage("usuario.grupo.sanguineo.tipo", null, locale).split(","));
         return new ModelAndView("usuario", "model", model);
+    }
+    
+    /**
+     * Carga la lista de usuarios con sus datos básicos
+     * 
+     * @return Lista de usuarios
+     */
+    @RequestMapping(value = "/listausuarios", method = RequestMethod.GET)
+    @ResponseBody
+    public String listaUsuarios(){
+        List<UsuarioDto> listaUsuariosDto = new ArrayList<UsuarioDto>();
+        Gson gson = new Gson();
+        listaUsuariosDto = usuarioService.getUsuarios();
+        String resultado = gson.toJson(listaUsuariosDto);
+        return resultado;
     }
     
     /**

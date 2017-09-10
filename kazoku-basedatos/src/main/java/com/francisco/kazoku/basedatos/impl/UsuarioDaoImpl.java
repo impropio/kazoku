@@ -5,12 +5,15 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Fetch;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 
 import com.francisco.kazoku.basedatos.core.impl.AbstractDao;
+import com.francisco.kazoku.basedatos.entities.Alergia;
 import com.francisco.kazoku.basedatos.entities.Usuario;
 import com.francisco.kazoku.basedatos.interfaces.UsuarioDaoI;
 
@@ -34,6 +37,8 @@ public class UsuarioDaoImpl extends AbstractDao<Usuario> implements UsuarioDaoI{
         final CriteriaBuilder cb = getCriteriaBuilder();
         final CriteriaQuery<Usuario> cq = cb.createQuery(getClase());
         final Root<Usuario> root = cq.from(Usuario.class);
+        
+        final Fetch<Usuario, Alergia> rootAlergia = root.fetch("listaAlergias", JoinType.LEFT);
         
         final List<Predicate> predicados = new ArrayList<>();
         

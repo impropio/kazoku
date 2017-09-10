@@ -91,16 +91,16 @@ public class UsuarioServiceImpl implements UsuarioServiceI{
         // Si el usuario va a utilizar contraseña se indica
         if(!"".equals(usuarioDto.getClave())) usuario.setUsaClave((byte) 1);
         
-        // Se graba la lista de alergias
-        if(!"".equals(usuarioDto.getCodigoAlergias())){
-            List<Alergia> listaAlergias = new ArrayList<Alergia>();
-            String[] listaCodigosAlergia = usuarioDto.getCodigoAlergias().split(",");
-            for(String codigoAlergia : listaCodigosAlergia){
-                Alergia alergia = alergiaDao.getAlergiaById(Integer.parseInt(codigoAlergia));
-                listaAlergias.add(alergia);
-            }
-            usuario.setListaAlergias(listaAlergias);
-        }
+//        // Se graba la lista de alergias
+//        if(!"".equals(usuarioDto.getCodigoAlergias())){
+//            List<Alergia> listaAlergias = new ArrayList<Alergia>();
+//            String[] listaCodigosAlergia = usuarioDto.getCodigoAlergias().split(",");
+//            for(String codigoAlergia : listaCodigosAlergia){
+//                Alergia alergia = alergiaDao.getAlergiaById(Integer.parseInt(codigoAlergia));
+//                listaAlergias.add(alergia);
+//            }
+//            usuario.setListaAlergias(listaAlergias);
+//        }
         
         // Se actualiza o crea el usuario
         if(usuarioDto.getId() == 0){

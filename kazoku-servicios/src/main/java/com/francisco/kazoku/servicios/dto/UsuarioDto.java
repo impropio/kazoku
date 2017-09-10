@@ -70,27 +70,27 @@ public class UsuarioDto implements Serializable{
     public UsuarioDto entityToDto(Usuario usuario){
         this.setId(usuario.getId());
         this.setNombre(usuario.getNombre());
-        if(usuario.getClave() != null && "".equals(usuario.getClave())){
-            this.usaClave = true;
-        }
+//        if(usuario.getClave() != null && "".equals(usuario.getClave())){
+//            this.usaClave = true;
+//        }
         this.setFechaNacimiento(usuario.getFechaNacimiento());
         this.setDni(usuario.getDni());
         this.setPasaporte(usuario.getPasaporte());
         this.setSegSocial(usuario.getSeguridadSocial());
         this.setGrupoSanguineo(usuario.getGrupoSanguineo());
-        if(usuario.getListaAlergias() != null){
-            List<Alergia> listaAlergias = usuario.getListaAlergias();
-            this.codigoAlergias = "";
-            this.textoAlergias = "";
-            for(Alergia alergia : listaAlergias){
-                if(this.codigoAlergias != ""){
-                    this.codigoAlergias += ",";
-                    this.textoAlergias += ", ";
-                }
-                this.codigoAlergias += alergia.getId();
-                this.textoAlergias += alergia.getElemento();
-            }
-        }
+//        if(!usuario.getListaAlergias().isEmpty()){
+//            List<Alergia> listaAlergias = usuario.getListaAlergias();
+//            this.codigoAlergias = "";
+//            this.textoAlergias = "";
+//            for(Alergia alergia : listaAlergias){
+//                if(this.codigoAlergias != ""){
+//                    this.codigoAlergias += ",";
+//                    this.textoAlergias += ", ";
+//                }
+//                this.codigoAlergias += alergia.getId();
+//                this.textoAlergias += alergia.getElemento();
+//            }
+//        }
         return this;
     }
     
