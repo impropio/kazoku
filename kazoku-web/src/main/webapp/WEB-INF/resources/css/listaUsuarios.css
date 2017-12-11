@@ -1,0 +1,45 @@
+.contenedor-tarjetas{
+	margin: 0 20px;
+}
+
+.tarjetaUsuario{
+	padding: 10px;
+}
+
+.datosUsuario{
+	box-sizing: border-box;
+	font-size:90%;
+	color:#444;
+	padding: 10px 15px;
+	background-color: #fbfbfb;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.datosUsuario h4{
+	color: blue;
+	cursor: pointer;
+	text-align: center;
+	font-weight: bold;
+	overflow:hidden;
+	word-wrap: break-word;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+.datosUsuario .dato{
+	/*width:170px;*/
+	overflow:hidden;
+	word-wrap: break-word;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+.dato em{
+	display: inline-block;
+	text-align: center;
+	width: 20px;
+}

@@ -1,43 +1,13 @@
 $(document).ready(function(){
-	var table = $('#tabla').DataTable({
-		ajax: {
-			url: diccionario.pageContext + "/usuario/listausuarios"
-		},
-		columns: [
-			{
-//				orderable: false,
-//				render: function(data, type, full, meta){
-//					return '<a><span class="glyphicon glyphicon-time"></span> </a><a><span class="glyphicon glyphicon-comment"></span></a>';
-//				}
-			},
-			{
-				'data': "nombre"
-			},
-			{
-//				render: function(data, type, full, meta){
-//					return '<a><span class="glyphicon glyphicon-time"></span></a>';
-//				}
-			},
-			{
-//				data: "fechaNacimiento"
-			},
-			{
-				'data': "dni"
-			},
-			{
-//				data: "pasaporte"
-			},
-			{
-//				data: "segSocial"
-			},
-			{
-//				data: "grupoSanguineo"
-			},
-			{
-//				render: function(data, type, full, meta){
-//					return '<a><span class="glyphicon glyphicon-time"></span></a>';
-//				}
-			}
-		]
-	});
+	$('[data-toggle="popover"]').popover();
+	$('.nombre-usuario').on('click', function(){
+		var id = $(this).attr('data-idUsuario');
+		$('#mod_acceso_id_usuario').val(id);
+		$('#formulario_acceso').attr('action', $('#formulario_acceso').attr('action') + "usuario/acceso")
+		$('#modal_acceso').modal('show');
+	})
 });
+
+
+
+

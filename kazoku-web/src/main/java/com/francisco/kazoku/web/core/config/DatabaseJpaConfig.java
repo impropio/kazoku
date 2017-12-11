@@ -36,6 +36,9 @@ public class DatabaseJpaConfig {
     @Value("${basedatos.datasource.password}")
     private String clave;
     
+    @Value("${basedatos.formatSql}")
+    private String formatSql;
+    
     @Value("${basedatos.showSql}")
     private String mostrarSql;
     
@@ -87,6 +90,7 @@ public class DatabaseJpaConfig {
     Properties additionalProperties(){
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", actualizaEntities);
+        properties.setProperty("hibernate.format_sql", formatSql);
         properties.setProperty("hibernate.show_sql", mostrarSql);
         properties.setProperty("hibernate.dialect", dialecto);
         return properties;

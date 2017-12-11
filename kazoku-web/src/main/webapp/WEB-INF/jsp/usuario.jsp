@@ -61,7 +61,6 @@
 									<th>Pasaporte</th>
 									<th>Seguridad Social</th>
 									<th>Grupo Sanguíneo</th>
-									<th>Alergias</th>
 								</tr>
 							</thead>
 							<tbody>

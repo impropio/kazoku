@@ -70,9 +70,9 @@ public class UsuarioDto implements Serializable{
     public UsuarioDto entityToDto(Usuario usuario){
         this.setId(usuario.getId());
         this.setNombre(usuario.getNombre());
-//        if(usuario.getClave() != null && "".equals(usuario.getClave())){
-//            this.usaClave = true;
-//        }
+        if(usuario.getClave() != null && !"".equals(usuario.getClave())){
+            this.usaClave = true;
+        }
         this.setFechaNacimiento(usuario.getFechaNacimiento());
         this.setDni(usuario.getDni());
         this.setPasaporte(usuario.getPasaporte());

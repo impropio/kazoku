@@ -79,16 +79,6 @@
 								</c:forEach>
 							</select>
 						</div>
-						<div class="col-sm-2">
-							<span><spring:message code="usuario.alergias"/>:</span>
-						</div>
-						<div class="col-sm-4">
-							<div class="input-group">
-								<input type="text" id="mod_usu_alergias" name="mod_usu_alergias" class="form-control" value="" disabled>
-								<span class="input-group-addon ampliar-alergias">...</span>
-								<input type="text" id="mod_usu_cod_alergias" name="mod_usu_cod_alergias" class="oculto">
-							</div>
-						</div>
 					</div>
 					<div class="row linea">
 						<div class="pull-right">

@@ -48,7 +48,7 @@
 					<div class="col-md-5 opciones">
 						<a class="opcion" href="${pageContext.request.contextPath}/configuracion"><em class="fa fa-2x fa-cog configuracion"></em></a>
 						<em class="fa fa-2x fa-moon-o opcion modo-noche"></em> <!-- modo noche para controlar dispositivos con Arduino -->
-						<a class="opcion" href="${pageContext.request.contextPath}/usuario"><em class="fa fa-2x fa-user-o"></em></a> <!-- acceso a usuarios -->
+						<a class="opcion" href="${pageContext.request.contextPath}/usuario/lista"><em class="fa fa-2x fa-user-o"></em></a> <!-- acceso a usuarios -->
 						<a class="opcion" href=""><em class="fa fa-2x fa-address-card-o"></em></a> <!-- guia telefónica -->
 						<a class="opcion" href=""><em class="fa fa-2x fa-shopping-cart"></em></a> <!-- lista de la compra -->
 						<a class="opcion" href=""><em class="fa fa-2x fa-wifi"></em></a> <!-- configuración wifi -->
@@ -90,11 +90,11 @@
 						<div class="alto-porc-50 interior">
 							<span class="t3"><spring:message code="interior"/>:</span>
 							<span class="ancho-100">
-								<span class="ancho-100"><spring:message code="temp.actual"/>: Temperatura interior º</span>
+								<span class="ancho-100"><spring:message code="temp.actual"/>: 24º C</span>
 							</span>
 							<span class="ancho-100">
-								<span class="ancho-50"><spring:message code="humedad"/>: Humedad interior</span>
-								<span class="ancho-50"><spring:message code="presion"/>: Presión interior</span>
+								<span class="ancho-50"><spring:message code="humedad"/>: 80%</span>
+								<span class="ancho-50"><spring:message code="presion"/>: 1222,00</span>
 							</span>
 						</div>
 					</div>

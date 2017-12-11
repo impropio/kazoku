@@ -1,5 +1,7 @@
 package com.francisco.kazoku.web.controllers;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.francisco.kazoku.comunicacion.dto.HS100Dto;
 import com.francisco.kazoku.servicios.dto.ConfiguracionDto;
 import com.francisco.kazoku.servicios.interfaces.ConfiguracionServiceI;
 import com.francisco.kazoku.servicios.interfaces.PrediccionClimaServiceI;
@@ -39,9 +42,10 @@ public class InicioController{
      * @param session
      * @param model
      * @return
+     * @throws IOException 
      */
     @RequestMapping
-    public ModelAndView inicio(final HttpSession sesion, final ModelMap model){
+    public ModelAndView inicio(final HttpSession sesion, final ModelMap model) throws IOException{
         ConfiguracionDto config = getConfiguracion(sesion);
         model.addAttribute("prediccionActual", prediccionService.getPrediccionActual(
                 config.getIdCiudad(), 
@@ -52,6 +56,10 @@ public class InicioController{
                 config.getUnidadesMedida(), 
                 config.getClimaApiId(), 
                 config.getClimaNumeroDias()).getPredicciones());
+        
+//        HS100Dto plug = new HS100Dto("192.168.1.22");
+//        plug.switchOff();
+        
         return new ModelAndView(webInicio, "model", model);
     }
     

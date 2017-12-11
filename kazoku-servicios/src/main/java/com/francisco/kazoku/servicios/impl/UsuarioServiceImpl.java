@@ -55,7 +55,9 @@ public class UsuarioServiceImpl implements UsuarioServiceI{
         
         for(Usuario usuario : listaUsuarios){
             UsuarioDto usuarioDto = new UsuarioDto();
-            listaUsuariosDto.add(usuarioDto.entityToDto(usuario));
+            if(usuario.getId() != 1){
+                listaUsuariosDto.add(usuarioDto.entityToDto(usuario));
+            }
         }
         
         return listaUsuariosDto;

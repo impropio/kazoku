@@ -14,6 +14,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,15 +48,15 @@ public class UsuarioController{
     
     Locale locale = LocaleContextHolder.getLocale();
     
-    /**
-     * Carga de la pantalla de configuración
-     * 
-     * @param session
-     * @param model
-     * @return ModelAndView
-     */
-    @RequestMapping
-    public ModelAndView usuario(final HttpSession sesion, final ModelMap model){
+    
+    @RequestMapping(value = "/lista", method = RequestMethod.GET)
+    public ModelAndView listaUsuarios(final HttpSession sesion, final ModelMap model){
+        model.addAttribute("listaUsuarios", usuarioService.getUsuarios());
+        return new ModelAndView("listaUsuarios", "model", model);
+    }
+    
+    @RequestMapping(value = "/{idUsuario}", method = RequestMethod.GET)
+    public ModelAndView usuario(final HttpSession sesion, @PathVariable Integer idUsuario, final ModelMap model){
         model.addAttribute("gruposSanguineos", messageSource.getMessage("usuario.grupo.sanguineo.tipo", null, locale).split(","));
         return new ModelAndView("usuario", "model", model);
     }
@@ -73,6 +74,13 @@ public class UsuarioController{
         listaUsuariosDto = usuarioService.getUsuarios();
         String resultado = gson.toJson(listaUsuariosDto);
         return resultado;
+    }
+    
+    @RequestMapping(value = "/acceso", method = RequestMethod.POST)
+    public ModelAndView listaUsuarios(final HttpSession sesion, final ModelMap model, @RequestParam("mod_acceso_id_usuario") Integer id,
+            @RequestParam("mod_acceso_nombre") String nombre, @RequestParam("mod_acceso_clave") String clave){
+        
+        return new ModelAndView("usuario", "model", model);
     }
     
     /**

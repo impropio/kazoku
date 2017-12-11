@@ -24,6 +24,11 @@
 			<artifactId>spring-web</artifactId>
 			<version>4.3.7.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.11.4.RELEASE</version>
+		</dependency>
 		
 		<!-- Apache Commons FileUpload -->
 		<dependency>
@@ -75,13 +80,6 @@
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-cypher-compiler-2.1</artifactId>
 			<version>2.1.5</version>
-		</dependency>
-		
-		<!-- tiles -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-extras</artifactId>
-			<version>3.0.5</version>
 		</dependency>
 		
 		<dependency>
@@ -142,7 +140,7 @@
 					<replacements>
 						<replacement>
 							<token>#APP_VERSION#</token>
-							<value>V1.0_${yearMonthDay}</value>
+							<value>V0.0</value>
 						</replacement>
 					</replacements>
 				</configuration>
